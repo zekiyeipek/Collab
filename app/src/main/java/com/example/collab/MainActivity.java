@@ -1,5 +1,7 @@
 package com.example.collab;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.navigation.NavigationView;
@@ -50,11 +52,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //@Override
+    //public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+    //getMenuInflater().inflate(R.menu.menu_main, menu);
+    //return true;
+    //}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        return true; // No need to inflate menu here
     }
 
     @Override
@@ -66,6 +72,41 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.settingsFragment);
+            return true;
+        }
+        if (id == R.id.menu_edit_profile) {
+            // Navigate to the edit profile page
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.editProfileFragment);
+            return true;
+        }
+        if (id == R.id.menu_create_team) {
+            // Navigate to the create team page
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.createTeamFragment);
+            return true;
+        }
+        if (id == R.id.menu_companies) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.companiesFragment);
+            return true;
+        }
+        if (id == R.id.menu_my_projects) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.myProjectsFragment);
+            return true;
+        }
+        if (id == R.id.menu_my_tracking) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.myTrackingFragment);
+            return true;
+        }
+
+        if (id == R.id.menu_log_out) {
+            // Perform logout operation
+            logout();
             return true;
         }
 
@@ -77,5 +118,18 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void logout() {
+        // Clear user session data (e.g., remove user credentials from SharedPreferences)
+        // Example:
+        SharedPreferences.Editor editor = getSharedPreferences("user_session", MODE_PRIVATE).edit();
+        editor.clear();
+        editor.apply();
+
+        // Navigate to the login screen
+        Intent intent = new Intent(this, LoginFragment.class);
+        startActivity(intent);
+        finish(); // Optional: Finish the current activity to prevent going back to it using the back button
     }
 }

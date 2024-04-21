@@ -7,4 +7,25 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_edit_profile"
+        android:title="Edit Profile" />
+    <item
+        android:id="@+id/menu_create_team"
+        android:title="Create Team" />
+    <item
+        android:id="@+id/menu_companies"
+        android:title="Companies" />
+    <item
+        android:id="@+id/menu_my_projects"
+        android:title="My Projects" />
+    <item
+        android:id="@+id/menu_my_tracking"
+        android:title="My Tracking" />
+    <item
+        android:id="@+id/menu_profile"
+        android:title="Profile" />
+    <item
+        android:id="@+id/menu_log_out"
+        android:title="Log Out" />
 </menu>

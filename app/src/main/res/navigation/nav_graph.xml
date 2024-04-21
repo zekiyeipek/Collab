@@ -33,4 +33,34 @@
         android:name="com.example.collab.DashBoardFragment"
         android:label="fragment_dash_board"
         tools:layout="@layout/fragment_dash_board" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.collab.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/createTeamFragment"
+        android:name="com.example.collab.CreateTeamFragment"
+        android:label="fragment_create_team"
+        tools:layout="@layout/fragment_create_team" />
+    <fragment
+        android:id="@+id/companiesFragment"
+        android:name="com.example.collab.CompaniesFragment"
+        android:label="fragment_companies"
+        tools:layout="@layout/fragment_companies" />
+    <fragment
+        android:id="@+id/myProjectsFragment"
+        android:name="com.example.collab.MyProjectsFragment"
+        android:label="fragment_my_projects"
+        tools:layout="@layout/fragment_my_projects" />
+    <fragment
+        android:id="@+id/myTrackingFragment"
+        android:name="com.example.collab.MyTrackingFragment"
+        android:label="fragment_my_tracking"
+        tools:layout="@layout/fragment_my_tracking" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.collab.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
