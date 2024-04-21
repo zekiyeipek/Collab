@@ -33,6 +33,11 @@ public class WelcomeFragment extends Fragment {
                 NavHostFragment.findNavController(WelcomeFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
+        binding.buttonSecond.setOnClickListener(v ->
+                NavHostFragment.findNavController(WelcomeFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment)
+        );
+
     }
 
     @Override
