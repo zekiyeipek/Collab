@@ -63,4 +63,29 @@
         android:name="com.example.collab.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/chooseRoleFragment"
+        android:name="com.example.collab.ChooseRoleFragment"
+        android:label="fragment_choose_role"
+        tools:layout="@layout/fragment_choose_role" />
+    <fragment
+        android:id="@+id/studentRegisterFragment"
+        android:name="com.example.collab.ui.login.StudentRegisterFragment"
+        android:label="fragment_student_register"
+        tools:layout="@layout/fragment_student_register" />
+    <fragment
+        android:id="@+id/companyRegisterFragment"
+        android:name="com.example.collab.ui.login.CompanyRegisterFragment"
+        android:label="fragment_company_register"
+        tools:layout="@layout/fragment_company_register" />
+    <fragment
+        android:id="@+id/advisorRegisterFragment"
+        android:name="com.example.collab.ui.login.AdvisorRegisterFragment"
+        android:label="fragment_advisor_register"
+        tools:layout="@layout/fragment_advisor_register" />
+    <fragment
+        android:id="@+id/addMemberFragment"
+        android:name="com.example.collab.AddMemberFragment"
+        android:label="fragment_add_member"
+        tools:layout="@layout/fragment_add_member" />
 </navigation>

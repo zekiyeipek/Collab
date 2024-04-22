@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:text="@string/dashboard" />
 
         <TextView
@@ -29,6 +29,14 @@
             android:text="Open Drawer"
             android:clickable="true"
             android:onClick="openDrawer" />
+
+        <SearchView
+            android:layout_width="133dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="50dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"/>
 
     </FrameLayout>
 

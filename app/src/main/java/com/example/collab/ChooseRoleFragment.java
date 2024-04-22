@@ -3,10 +3,17 @@ package com.example.collab;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
+import com.example.collab.ui.login.StudentRegisterFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +30,9 @@ public class ChooseRoleFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    CheckBox checkBoxStudent, checkBoxCompany, checkBoxAdvisor;
+    Button submitButton;
 
     public ChooseRoleFragment() {
         // Required empty public constructor
@@ -58,7 +68,52 @@ public class ChooseRoleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_choose_role, container, false);
+        View view = inflater.inflate(R.layout.fragment_choose_role, container, false);
+
+        checkBoxStudent = view.findViewById(R.id.checkBoxStudent);
+        checkBoxCompany = view.findViewById(R.id.checkBoxCompany);
+        checkBoxAdvisor = view.findViewById(R.id.checkBoxAdvisor);
+        submitButton = view.findViewById(R.id.submit_button);
+
+        // Set click listeners for each checkbox
+        checkBoxStudent.setOnClickListener(checkBoxClickListener);
+        checkBoxCompany.setOnClickListener(checkBoxClickListener);
+        checkBoxAdvisor.setOnClickListener(checkBoxClickListener);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkBoxStudent.isChecked() || checkBoxCompany.isChecked() || checkBoxAdvisor.isChecked()) {
+                    // Check which checkbox is checked and navigate accordingly
+                    if (checkBoxStudent.isChecked()) {
+                        // Navigate to the StudentRegisterFragment using NavController
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.studentRegisterFragment);
+                    } else if (checkBoxCompany.isChecked()) {
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.companyRegisterFragment);
+                    } else if (checkBoxAdvisor.isChecked()) {
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.advisorRegisterFragment);
+                    }
+                } else {
+                    // Show a message that at least one checkbox must be selected
+                    Toast.makeText(getActivity(), "Please select at least one role", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        return view;
     }
+
+    // Listener to handle checkbox clicks
+    private View.OnClickListener checkBoxClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // Uncheck all checkboxes
+            checkBoxStudent.setChecked(v.getId() == R.id.checkBoxStudent);
+            checkBoxCompany.setChecked(v.getId() == R.id.checkBoxCompany);
+            checkBoxAdvisor.setChecked(v.getId() == R.id.checkBoxAdvisor);
+        }
+    };
 }

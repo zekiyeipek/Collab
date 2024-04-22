@@ -11,4 +11,31 @@
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <CheckBox
+        android:id="@+id/checkBoxStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student"
+        android:layout_marginTop="216dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company"
+        android:layout_marginTop="256dp"/>
+    <CheckBox
+        android:id="@+id/checkBoxAdvisor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Advisor"
+        android:layout_marginTop="306dp"/>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_gravity="center"/>
+
 </FrameLayout>
