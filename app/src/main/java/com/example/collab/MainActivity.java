@@ -128,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
         // Navigate to the login screen
-        Intent intent = new Intent(this, LoginFragment.class);
-        startActivity(intent);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController.navigate(R.id.FirstFragment);
         finish(); // Optional: Finish the current activity to prevent going back to it using the back button
     }
 }
