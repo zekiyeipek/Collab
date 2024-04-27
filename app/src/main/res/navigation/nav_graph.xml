@@ -88,4 +88,9 @@
         android:name="com.example.collab.AddMemberFragment"
         android:label="fragment_add_member"
         tools:layout="@layout/fragment_add_member" />
+    <fragment
+        android:id="@+id/addProjectFragment"
+        android:name="com.example.collab.MyProjectsFragment"
+        android:label="fragment_add_member"
+        tools:layout="@layout/fragment_project_details_popup" />
 </navigation>
