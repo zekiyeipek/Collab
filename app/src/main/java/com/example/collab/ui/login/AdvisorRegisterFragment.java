@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,9 +22,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.collab.databinding.FragmentAdvisorRegisterBinding;
 
 import com.example.collab.R;
+import com.example.collab.databinding.FragmentAdvisorRegisterBinding;
 
 public class AdvisorRegisterFragment extends Fragment {
 
@@ -47,10 +48,19 @@ public class AdvisorRegisterFragment extends Fragment {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.username;
+        final EditText usernameEditText = binding.email;
         final EditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
+        final Button loginButton = binding.signup;
         final ProgressBar loadingProgressBar = binding.loading;
+
+        TextView loginText = view.findViewById(R.id.loginText);
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the login page
+                Navigation.findNavController(view).navigate(R.id.SecondFragment);
+            }
+        });
 
         loginViewModel.getLoginFormState().observe(getViewLifecycleOwner(), new Observer<LoginFormState>() {
             @Override
