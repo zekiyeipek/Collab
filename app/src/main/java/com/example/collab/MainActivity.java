@@ -77,11 +77,22 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.menu_edit_profile) {
-            // Navigate to the edit profile page
+
+            String accountType = getAccountType(); // You need to implement this method to get the account type
+
+            // Navigate to the appropriate edit profile page based on the account type
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.editProfileFragment);
+            if (accountType.equals("student")) {
+                navController.navigate(R.id.editProfileStudentFragment);
+            } else if (accountType.equals("company")) {
+                navController.navigate(R.id.editProfileCompanyFragment);
+            } else {
+                // Handle other account types or show an error message
+                Snackbar.make(binding.getRoot(), "Invalid account type", Snackbar.LENGTH_SHORT).show();
+            }
             return true;
         }
+
         if (id == R.id.menu_create_team) {
             // Navigate to the create team page
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -132,4 +143,11 @@ public class MainActivity extends AppCompatActivity {
         navController.navigate(R.id.FirstFragment);
         finish(); // Optional: Finish the current activity to prevent going back to it using the back button
     }
+
+    private String getAccountType() {
+        // Retrieve the account type from SharedPreferences or any other source
+        SharedPreferences preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+        return preferences.getString("account_type", ""); // Replace "account_type" with the key you use to store the account type
+    }
+
 }
