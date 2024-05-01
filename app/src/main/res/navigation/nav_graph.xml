@@ -88,4 +88,19 @@
         android:name="com.example.collab.AddMemberFragment"
         android:label="fragment_add_member"
         tools:layout="@layout/fragment_add_member" />
+    <fragment
+        android:id="@+id/addProjectFragment"
+        android:name="com.example.collab.MyProjectsFragment"
+        android:label="fragment_add_member"
+        tools:layout="@layout/fragment_project_details_popup" />
+    <fragment
+        android:id="@+id/editProfileStudentFragment"
+        android:name="com.example.collab.EditProfileStudentFragment"
+        android:label="fragment_edit_profile_student"
+        tools:layout="@layout/fragment_edit_profile_student" />
+    <fragment
+        android:id="@+id/editProfileCompanyFragment"
+        android:name="com.example.collab.EditProfileCompanyFragment"
+        android:label="fragment_edit_profile_company"
+        tools:layout="@layout/fragment_edit_profile_company" />
 </navigation>

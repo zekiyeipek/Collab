@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.collab.ui.login.StudentRegisterFragment;
@@ -73,7 +74,7 @@ public class ChooseRoleFragment extends Fragment {
         checkBoxStudent = view.findViewById(R.id.checkBoxStudent);
         checkBoxCompany = view.findViewById(R.id.checkBoxCompany);
         checkBoxAdvisor = view.findViewById(R.id.checkBoxAdvisor);
-        submitButton = view.findViewById(R.id.submit_button);
+        ImageButton submitButton = view.findViewById(R.id.submit_button);
 
         // Set click listeners for each checkbox
         checkBoxStudent.setOnClickListener(checkBoxClickListener);

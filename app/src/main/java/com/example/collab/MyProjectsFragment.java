@@ -1,13 +1,21 @@
 package com.example.collab;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MyProjectsFragment#newInstance} factory method to
@@ -23,6 +31,17 @@ public class MyProjectsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private static final int REQUEST_ADD_PROJECT = 1;
+
+    // UI elements
+    private TextView projectNameTextView;
+    private TextView projectHistoryTextView;
+    private TextView projectDurationTextView;
+    private TextView projectTeamTextView;
+
+    private View rootView;
+    private LinearLayout parentContainer;
 
     public MyProjectsFragment() {
         // Required empty public constructor
@@ -59,6 +78,101 @@ public class MyProjectsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_projects, container, false);
+        rootView = inflater.inflate(R.layout.fragment_my_projects, container, false);
+
+        // Initialize UI elements
+        projectNameTextView = rootView.findViewById(R.id.projectNameText);
+        projectHistoryTextView = rootView.findViewById(R.id.historyText);
+        projectDurationTextView = rootView.findViewById(R.id.projectDurationText);
+        projectTeamTextView = rootView.findViewById(R.id.projectTeamText);
+
+        // Initialize parent container
+        parentContainer = rootView.findViewById(R.id.linearLayout);
+
+        // Button click listener for adding project
+        Button addProjectButton = rootView.findViewById(R.id.button4);
+        addProjectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showProjectDetailsPopup(inflater); // Open pop-up on button click
+            }
+        });
+
+        return rootView;
     }
+
+    // Method to inflate and handle pop-up for project details
+    private void showProjectDetailsPopup(LayoutInflater inflater) {
+        // Inflate pop-up layout
+        View popupView = inflater.inflate(R.layout.fragment_project_details_popup, null);
+
+        // Get references to input fields and submit button
+        EditText projectNameInput = popupView.findViewById(R.id.projectNameInput);
+        EditText projectHistoryInput = popupView.findViewById(R.id.projectHistoryInput);
+        EditText projectDurationInput = popupView.findViewById(R.id.projectDurationInput);
+        EditText projectTeamInput = popupView.findViewById(R.id.projectTeamInput);
+        Button submitButton = popupView.findViewById(R.id.submitButton);
+
+        // Build the alert dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setView(popupView);
+        AlertDialog alertDialog = builder.create();
+
+
+        // Submit button click listener
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get user input
+                String projectName = projectNameInput.getText().toString();
+                String projectHistory = projectHistoryInput.getText().toString();
+                String projectDuration = projectDurationInput.getText().toString();
+                String projectTeam = projectTeamInput.getText().toString();
+
+                // Basic validation (check for empty fields)
+                if (TextUtils.isEmpty(projectName) || TextUtils.isEmpty(projectHistory) || TextUtils.isEmpty(projectDuration) || TextUtils.isEmpty(projectTeam)) {
+                    // Show error message (optional)
+                    return;
+                }
+
+                // Create a new view to display project details
+                View projectView = inflater.inflate(R.layout.project_entry, null);
+
+                // Set project details to the new view
+                TextView projectNameTextView = projectView.findViewById(R.id.projectNameText);
+                TextView projectHistoryTextView = projectView.findViewById(R.id.historyText);
+                TextView projectDurationTextView = projectView.findViewById(R.id.projectDurationText);
+                TextView projectTeamTextView = projectView.findViewById(R.id.projectTeamText);
+
+
+                // Update UI with new project details
+                projectNameTextView.setText(projectName);
+                projectHistoryTextView.setText(projectHistory);
+                projectDurationTextView.setText(projectDuration);
+                projectTeamTextView.setText(projectTeam);
+
+                // Create LayoutParams for the new container
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, // Width
+                        LinearLayout.LayoutParams.WRAP_CONTENT // Height
+                );
+
+
+                // Add a margin between project entries
+                //layoutParams.setMargins(0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()), 0, 0);
+
+
+                LinearLayout parentContainer = rootView.findViewById(R.id.projectLayout);
+                parentContainer.addView(projectView,layoutParams);
+
+
+                // Dismiss the dialog
+                alertDialog.dismiss();
+            }
+        });
+
+        // Show the dialog
+        alertDialog.show();
+    }
+
 }
