@@ -1,5 +1,8 @@
 package com.example.collab;
 
+import static com.example.collab.R.id.editTextTextMultiLine;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,15 +68,23 @@ public class CreateTeamFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_team, container, false);
 
         Button addMemberButton = view.findViewById(R.id.addMemberbutton);
+        final EditText teamNameEditText = view.findViewById(editTextTextMultiLine);
+        final EditText infoEditText = view.findViewById(editTextTextMultiLine);
+
         addMemberButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the AddMemberFragment using NavController
-                Navigation.findNavController(v).navigate(R.id.addMemberFragment);
+                String teamName = teamNameEditText.getText().toString();
+                String info = infoEditText.getText().toString();
+
+                if (teamName.isEmpty() || info.isEmpty()) {
+                    Toast.makeText(getActivity(), "Cannot be empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Navigate to the AddMemberFragment using NavController
+                    Navigation.findNavController(v).navigate(R.id.addMemberFragment);
+                }
             }
         });
-
-        // Other initialization code
 
         return view;
     }

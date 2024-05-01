@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     //@Override
     //public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+    // Inflate the menu; this adds items to the action bar if it is present.
     //getMenuInflater().inflate(R.menu.menu_main, menu);
     //return true;
     //}
@@ -121,15 +121,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        // Clear user session data (e.g., remove user credentials from SharedPreferences)
-        // Example:
-        SharedPreferences.Editor editor = getSharedPreferences("user_session", MODE_PRIVATE).edit();
-        editor.clear();
-        editor.apply();
+        try {
+            // Clear user session data (e.g., remove user credentials from SharedPreferences)
+            // Example:
+            SharedPreferences.Editor editor = getSharedPreferences("user_session", MODE_PRIVATE).edit();
+            editor.clear();
+            editor.apply();
 
-        // Navigate to the login screen
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        navController.navigate(R.id.FirstFragment);
-        finish(); // Optional: Finish the current activity to prevent going back to it using the back button
+            // Navigate to the login screen
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.FirstFragment);
+            finish(); // Optional: Finish the current activity to prevent going back to it using the back button
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

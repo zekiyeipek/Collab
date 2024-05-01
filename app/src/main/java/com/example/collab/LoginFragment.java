@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,10 +34,15 @@ public class LoginFragment extends Fragment {
                 NavHostFragment.findNavController(LoginFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment)
         );
-        binding.login.setOnClickListener(v ->
+        binding.login.setOnClickListener(v -> {
+            String email = binding.username.getText().toString();
+            if (email.endsWith("@cankaya.edu.tr") || email.endsWith("@student.cankaya.edu.tr")) {
                 NavHostFragment.findNavController(LoginFragment.this)
-                        .navigate(R.id.login2)
-        );
+                        .navigate(R.id.login2);
+            } else {
+                Toast.makeText(getActivity(), "Inappropriate Format!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
