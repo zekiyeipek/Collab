@@ -67,7 +67,7 @@ public class CreateTeamFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_team, container, false);
 
-        Button addMemberButton = view.findViewById(R.id.addMemberbutton);
+        Button addMemberButton = view.findViewById(R.id.createTeambutton);
         final EditText teamNameEditText = view.findViewById(editTextTextMultiLine);
         final EditText infoEditText = view.findViewById(editTextTextMultiLine);
 

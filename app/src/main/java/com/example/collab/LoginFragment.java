@@ -36,7 +36,11 @@ public class LoginFragment extends Fragment {
         );
         binding.login.setOnClickListener(v -> {
             String email = binding.username.getText().toString();
-            if (email.endsWith("@cankaya.edu.tr") || email.endsWith("@student.cankaya.edu.tr")) {
+            String password = binding.password.getText().toString();
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(getActivity(), "Password cannot be empty", Toast.LENGTH_SHORT).show();
+            } else if (email.endsWith("@cankaya.edu.tr") || email.endsWith("@student.cankaya.edu.tr")) {
                 NavHostFragment.findNavController(LoginFragment.this)
                         .navigate(R.id.login2);
             } else {
