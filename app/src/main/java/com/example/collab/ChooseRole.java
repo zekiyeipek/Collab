@@ -14,14 +14,12 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.collab.ui.login.StudentRegisterFragment;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ChooseRoleFragment#newInstance} factory method to
+ * Use the {@link ChooseRole#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChooseRoleFragment extends Fragment {
+public class ChooseRole extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +33,7 @@ public class ChooseRoleFragment extends Fragment {
     CheckBox checkBoxStudent, checkBoxCompany, checkBoxAdvisor;
     Button submitButton;
 
-    public ChooseRoleFragment() {
+    public ChooseRole() {
         // Required empty public constructor
     }
 
@@ -48,8 +46,8 @@ public class ChooseRoleFragment extends Fragment {
      * @return A new instance of fragment ChooseRoleFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ChooseRoleFragment newInstance(String param1, String param2) {
-        ChooseRoleFragment fragment = new ChooseRoleFragment();
+    public static ChooseRole newInstance(String param1, String param2) {
+        ChooseRole fragment = new ChooseRole();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,7 +67,7 @@ public class ChooseRoleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_choose_role, container, false);
+        View view = inflater.inflate(R.layout.choose_role, container, false);
 
         checkBoxStudent = view.findViewById(R.id.checkBoxStudent);
         checkBoxCompany = view.findViewById(R.id.checkBoxCompany);

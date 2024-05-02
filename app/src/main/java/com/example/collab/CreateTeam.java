@@ -2,7 +2,6 @@ package com.example.collab;
 
 import static com.example.collab.R.id.editTextTextMultiLine;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,10 +16,10 @@ import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreateTeamFragment#newInstance} factory method to
+ * Use the {@link CreateTeam#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreateTeamFragment extends Fragment {
+public class CreateTeam extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +30,7 @@ public class CreateTeamFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CreateTeamFragment() {
+    public CreateTeam() {
         // Required empty public constructor
     }
 
@@ -44,8 +43,8 @@ public class CreateTeamFragment extends Fragment {
      * @return A new instance of fragment CreateTeamFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreateTeamFragment newInstance(String param1, String param2) {
-        CreateTeamFragment fragment = new CreateTeamFragment();
+    public static CreateTeam newInstance(String param1, String param2) {
+        CreateTeam fragment = new CreateTeam();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +64,7 @@ public class CreateTeamFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_create_team, container, false);
+        View view = inflater.inflate(R.layout.create_team, container, false);
 
         Button addMemberButton = view.findViewById(R.id.createTeambutton);
         final EditText teamNameEditText = view.findViewById(editTextTextMultiLine);

@@ -16,10 +16,10 @@ import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DashBoardFragment#newInstance} factory method to
+ * Use the {@link DashBoard#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DashBoardFragment extends Fragment {
+public class DashBoard extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +32,7 @@ public class DashBoardFragment extends Fragment {
 
     private DrawerLayout drawerLayout;
 
-    public DashBoardFragment() {
+    public DashBoard() {
         // Required empty public constructor
     }
 
@@ -45,8 +45,8 @@ public class DashBoardFragment extends Fragment {
      * @return A new instance of fragment DashBoardFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DashBoardFragment newInstance(String param1, String param2) {
-        DashBoardFragment fragment = new DashBoardFragment();
+    public static DashBoard newInstance(String param1, String param2) {
+        DashBoard fragment = new DashBoard();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +67,7 @@ public class DashBoardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dash_board, container, false);
+        View view = inflater.inflate(R.layout.dash_board, container, false);
 
         // Find the TextView within the fragment's layout
         TextView textViewOpenDrawer = view.findViewById(R.id.textViewOpenDrawer);

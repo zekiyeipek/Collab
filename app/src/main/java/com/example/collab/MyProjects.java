@@ -6,22 +6,19 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyProjectsFragment#newInstance} factory method to
+ * Use the {@link MyProjects#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyProjectsFragment extends Fragment {
+public class MyProjects extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +40,7 @@ public class MyProjectsFragment extends Fragment {
     private View rootView;
     private LinearLayout parentContainer;
 
-    public MyProjectsFragment() {
+    public MyProjects() {
         // Required empty public constructor
     }
 
@@ -56,8 +53,8 @@ public class MyProjectsFragment extends Fragment {
      * @return A new instance of fragment MyProjectsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyProjectsFragment newInstance(String param1, String param2) {
-        MyProjectsFragment fragment = new MyProjectsFragment();
+    public static MyProjects newInstance(String param1, String param2) {
+        MyProjects fragment = new MyProjects();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,7 +75,7 @@ public class MyProjectsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_my_projects, container, false);
+        rootView = inflater.inflate(R.layout.my_projects, container, false);
 
         // Initialize UI elements
         projectNameTextView = rootView.findViewById(R.id.projectNameText);
@@ -104,7 +101,7 @@ public class MyProjectsFragment extends Fragment {
     // Method to inflate and handle pop-up for project details
     private void showProjectDetailsPopup(LayoutInflater inflater) {
         // Inflate pop-up layout
-        View popupView = inflater.inflate(R.layout.fragment_project_details_popup, null);
+        View popupView = inflater.inflate(R.layout.project_details_popup, null);
 
         // Get references to input fields and submit button
         EditText projectNameInput = popupView.findViewById(R.id.projectNameInput);

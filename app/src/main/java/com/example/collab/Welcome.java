@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.collab.databinding.FragmentWelcomeBinding;
 
-public class WelcomeFragment extends Fragment {
+public class Welcome extends Fragment {
 
     private FragmentWelcomeBinding binding;
 
@@ -30,11 +30,11 @@ public class WelcomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.buttonFirst.setOnClickListener(v ->
-                NavHostFragment.findNavController(WelcomeFragment.this)
+                NavHostFragment.findNavController(Welcome.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
         binding.buttonSecond.setOnClickListener(v ->
-                NavHostFragment.findNavController(WelcomeFragment.this)
+                NavHostFragment.findNavController(Welcome.this)
                         .navigate(R.id.chooseRoleFragment)
         );
 

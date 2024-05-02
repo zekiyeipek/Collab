@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.collab.databinding.FragmentLoginBinding;
 
-public class LoginFragment extends Fragment {
+public class Login extends Fragment {
 
     private FragmentLoginBinding binding;
 
@@ -31,7 +31,7 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.buttonSecond.setOnClickListener(v ->
-                NavHostFragment.findNavController(LoginFragment.this)
+                NavHostFragment.findNavController(Login.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment)
         );
         binding.login.setOnClickListener(v -> {
