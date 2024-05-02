@@ -35,9 +35,9 @@
         tools:layout="@layout/fragment_dash_board" />
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.example.collab.EditProfileFragment"
+        android:name="com.example.collab.EditProfileAdvisorFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile_advisor" />
     <fragment
         android:id="@+id/createTeamFragment"
         android:name="com.example.collab.CreateTeamFragment"

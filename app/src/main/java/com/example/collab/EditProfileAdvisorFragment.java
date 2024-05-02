@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 
-public class EditProfileFragment extends Fragment {
+public class EditProfileAdvisorFragment extends Fragment {
 
     // ImageView for displaying the selected image
     private ImageView imageView;
@@ -28,7 +26,7 @@ public class EditProfileFragment extends Fragment {
     // Request code for selecting image
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    public EditProfileFragment() {
+    public EditProfileAdvisorFragment() {
         // Required empty public constructor
     }
 
@@ -42,7 +40,7 @@ public class EditProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_edit_profile_advisor, container, false);
 
         // Initialize the ImageView
         imageView = view.findViewById(R.id.imageView14);
