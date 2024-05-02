@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.collab.databinding.FragmentWelcomeBinding;
+import com.example.collab.databinding.WelcomeBinding;
 
 public class Welcome extends Fragment {
 
-    private FragmentWelcomeBinding binding;
+    private WelcomeBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class Welcome extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentWelcomeBinding.inflate(inflater, container, false);
+        binding = WelcomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

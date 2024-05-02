@@ -10,11 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.collab.databinding.FragmentLoginBinding;
+import com.example.collab.databinding.LoginBinding;
 
 public class Login extends Fragment {
 
-    private FragmentLoginBinding binding;
+    private LoginBinding binding;
 
     @Override
     public View onCreateView(
@@ -22,7 +22,7 @@ public class Login extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        binding = LoginBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
