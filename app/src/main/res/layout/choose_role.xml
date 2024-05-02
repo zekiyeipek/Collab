@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseRole"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_11"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="150dp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="150dp"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/modal"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="10dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="345dp"
+        android:layout_marginLeft="39dp"
+        android:textColor="#8B8888"
+        android:buttonTint="#8B8888"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="377dp"
+        android:layout_marginLeft="39dp"
+        android:textColor="#8B8888"
+        android:buttonTint="#8B8888"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxAdvisor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="409dp"
+        android:layout_marginLeft="39dp"
+        android:textColor="#8B8888"
+        android:buttonTint="#8B8888"/>
+
+    <ImageButton
+        android:id="@+id/submit_button"
+        android:layout_width="155dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="472dp"
+        android:src="@drawable/confirm_button" />
+
+
+</FrameLayout>

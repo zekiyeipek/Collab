@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyTracking"
+    android:background="@drawable/background">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Tracking"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <RadioButton
+        android:id="@+id/startupPhaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Startup Phase"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:buttonTint="@color/black"/>
+
+    <RadioButton
+        android:id="@+id/requirementsPhaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Requirements Phase"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        android:buttonTint="@color/black"/>
+
+    <RadioButton
+        android:id="@+id/designPhaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Design Phase"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="20dp"
+        android:buttonTint="@color/black"/>
+
+    <RadioButton
+        android:id="@+id/implementationPhaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Implementation Phase"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="20dp"
+        android:buttonTint="@color/black"/>
+
+    <RadioButton
+        android:id="@+id/testPhaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Phase"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="20dp"
+        android:buttonTint="@color/black"/>
+
+    <RadioButton
+        android:id="@+id/evaluationPhaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evaluation Phase"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="20dp"
+        android:buttonTint="@color/black"/>
+
+</FrameLayout>

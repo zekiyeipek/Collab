@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProjects"
+    android:background="@drawable/background"
+    android:id="@+id/parentLayout">
+
+    <LinearLayout
+        android:id="@+id/projectLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_6"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Projects"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="400dp"
+        android:orientation="vertical"
+        android:background="@drawable/edit_text_border"
+        android:padding="8dp">
+
+    <TextView
+        android:id="@+id/projectNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Name"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="3dp" />
+
+    <TextView
+        android:id="@+id/historyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="3dp" />
+
+    <TextView
+        android:id="@+id/projectDurationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Duration"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="3dp" />
+
+    <TextView
+        android:id="@+id/projectTeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Team"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="3dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Add Project"
+        android:textStyle="bold"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="30dp"
+        app:backgroundTint="#3B3A3A"/>
+
+</FrameLayout>
