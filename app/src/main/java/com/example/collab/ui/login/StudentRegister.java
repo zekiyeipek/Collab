@@ -21,14 +21,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.collab.databinding.FragmentStudentRegisterBinding;
-
 import com.example.collab.R;
+import com.example.collab.databinding.StudentRegisterBinding;
 
-public class StudentRegisterFragment extends Fragment {
+public class StudentRegister extends Fragment {
 
     private LoginViewModel loginViewModel;
-    private FragmentStudentRegisterBinding binding;
+    private StudentRegisterBinding binding;
 
     @Nullable
     @Override
@@ -36,7 +35,7 @@ public class StudentRegisterFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FragmentStudentRegisterBinding.inflate(inflater, container, false);
+        binding = StudentRegisterBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

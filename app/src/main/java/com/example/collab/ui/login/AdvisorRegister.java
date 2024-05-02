@@ -24,12 +24,13 @@ import android.widget.Toast;
 
 
 import com.example.collab.R;
-import com.example.collab.databinding.FragmentAdvisorRegisterBinding;
+import com.example.collab.databinding.AdvisorRegisterBinding;
+import com.example.collab.databinding.AdvisorRegisterBinding;
 
-public class AdvisorRegisterFragment extends Fragment {
+public class AdvisorRegister extends Fragment {
 
     private LoginViewModel loginViewModel;
-    private FragmentAdvisorRegisterBinding binding;
+    private AdvisorRegisterBinding binding;
 
     @Nullable
     @Override
@@ -37,7 +38,7 @@ public class AdvisorRegisterFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FragmentAdvisorRegisterBinding.inflate(inflater, container, false);
+        binding = AdvisorRegisterBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

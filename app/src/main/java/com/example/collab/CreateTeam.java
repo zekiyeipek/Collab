@@ -80,7 +80,7 @@ public class CreateTeam extends Fragment {
                     Toast.makeText(getActivity(), "Cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
                     // Navigate to the AddMemberFragment using NavController
-                    Navigation.findNavController(v).navigate(R.id.addMemberFragment);
+                    Navigation.findNavController(v).navigate(R.id.addMember);
                 }
             }
         });

@@ -85,15 +85,15 @@ public class ChooseRole extends Fragment {
                 if (checkBoxStudent.isChecked() || checkBoxCompany.isChecked() || checkBoxAdvisor.isChecked()) {
                     // Check which checkbox is checked and navigate accordingly
                     if (checkBoxStudent.isChecked()) {
-                        // Navigate to the StudentRegisterFragment using NavController
+                        // Navigate to the StudentRegister using NavController
                         NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.studentRegisterFragment);
+                        navController.navigate(R.id.studentRegister);
                     } else if (checkBoxCompany.isChecked()) {
                         NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.companyRegisterFragment);
+                        navController.navigate(R.id.companyRegister);
                     } else if (checkBoxAdvisor.isChecked()) {
                         NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.advisorRegisterFragment);
+                        navController.navigate(R.id.advisorRegister);
                     }
                 } else {
                     // Show a message that at least one checkbox must be selected

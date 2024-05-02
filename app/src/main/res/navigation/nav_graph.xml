@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.collab.Welcome"
-        android:label="@string/first_fragment_label"
+        android:label="First Fragment"
         tools:layout="@layout/welcome">
 
         <action
@@ -26,81 +26,81 @@
             app:destination="@id/FirstFragment" />
         <action
             android:id="@+id/login2"
-            app:destination="@id/dashBoardFragment" />
+            app:destination="@id/dashBoard" />
     </fragment>
     <fragment
-        android:id="@+id/dashBoardFragment"
+        android:id="@+id/dashBoard"
         android:name="com.example.collab.DashBoard"
-        android:label="fragment_dash_board"
+        android:label="dash_board"
         tools:layout="@layout/dash_board" />
     <fragment
-        android:id="@+id/editProfileFragment"
+        android:id="@+id/editProfile"
         android:name="com.example.collab.EditProfile"
-        android:label="fragment_edit_profile"
+        android:label="edit_profile"
         tools:layout="@layout/edit_profile" />
     <fragment
-        android:id="@+id/createTeamFragment"
+        android:id="@+id/createTeam"
         android:name="com.example.collab.CreateTeam"
-        android:label="fragment_create_team"
+        android:label="create_team"
         tools:layout="@layout/create_team" />
     <fragment
-        android:id="@+id/companiesFragment"
+        android:id="@+id/companies"
         android:name="com.example.collab.Companies"
-        android:label="fragment_companies"
+        android:label="companies"
         tools:layout="@layout/companies" />
     <fragment
-        android:id="@+id/myProjectsFragment"
+        android:id="@+id/myProjects"
         android:name="com.example.collab.MyProjects"
-        android:label="fragment_my_projects"
+        android:label="my_projects"
         tools:layout="@layout/my_projects" />
     <fragment
-        android:id="@+id/myTrackingFragment"
+        android:id="@+id/myTracking"
         android:name="com.example.collab.MyTracking"
-        android:label="fragment_my_tracking"
+        android:label="my_tracking"
         tools:layout="@layout/my_tracking" />
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settings"
         android:name="com.example.collab.Settings"
-        android:label="fragment_settings"
+        android:label="settings"
         tools:layout="@layout/settings" />
     <fragment
-        android:id="@+id/chooseRoleFragment"
+        android:id="@+id/chooseRole"
         android:name="com.example.collab.ChooseRole"
-        android:label="fragment_choose_role"
+        android:label="choose_role"
         tools:layout="@layout/choose_role" />
     <fragment
-        android:id="@+id/studentRegisterFragment"
-        android:name="com.example.collab.ui.login.StudentRegisterFragment"
-        android:label="fragment_student_register"
+        android:id="@+id/studentRegister"
+        android:name="com.example.collab.ui.login.StudentRegister"
+        android:label="student_register"
         tools:layout="@layout/student_register" />
     <fragment
-        android:id="@+id/companyRegisterFragment"
-        android:name="com.example.collab.ui.login.CompanyRegisterFragment"
-        android:label="fragment_company_register"
+        android:id="@+id/companyRegister"
+        android:name="com.example.collab.ui.login.CompanyRegister"
+        android:label="company_register"
         tools:layout="@layout/company_register" />
     <fragment
-        android:id="@+id/advisorRegisterFragment"
-        android:name="com.example.collab.ui.login.AdvisorRegisterFragment"
-        android:label="fragment_advisor_register"
+        android:id="@+id/advisorRegister"
+        android:name="com.example.collab.ui.login.AdvisorRegister"
+        android:label="advisor_register"
         tools:layout="@layout/advisor_register" />
     <fragment
-        android:id="@+id/addMemberFragment"
+        android:id="@+id/addMember"
         android:name="com.example.collab.AddMember"
-        android:label="fragment_add_member"
+        android:label="add_member"
         tools:layout="@layout/add_member" />
     <fragment
-        android:id="@+id/addProjectFragment"
+        android:id="@+id/addProject"
         android:name="com.example.collab.MyProjects"
-        android:label="fragment_add_member"
+        android:label="add_member"
         tools:layout="@layout/project_details_popup" />
     <fragment
-        android:id="@+id/editProfileStudentFragment"
+        android:id="@+id/editProfileStudent"
         android:name="com.example.collab.EditProfileStudent"
-        android:label="fragment_edit_profile_student"
+        android:label="edit_profile_student"
         tools:layout="@layout/edit_profile_student" />
     <fragment
-        android:id="@+id/editProfileCompanyFragment"
+        android:id="@+id/editProfileCompany"
         android:name="com.example.collab.EditProfileCompany"
-        android:label="fragment_edit_profile_company"
+        android:label="edit_profile_company"
         tools:layout="@layout/edit_profile_company" />
 </navigation>
