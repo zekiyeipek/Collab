@@ -16,7 +16,7 @@
         android:src="@drawable/image_6" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/uploadPhotobutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upload Photo"
