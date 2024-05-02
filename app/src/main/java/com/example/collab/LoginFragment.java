@@ -40,10 +40,8 @@ public class LoginFragment extends Fragment {
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(getActivity(), "Password cannot be empty", Toast.LENGTH_SHORT).show();
-            } else if (email.endsWith("@cankaya.edu.tr") || email.endsWith("@student.cankaya.edu.tr")) {
-                NavHostFragment.findNavController(LoginFragment.this)
-                        .navigate(R.id.login2);
-            } else {
+            }
+            else {
                 Toast.makeText(getActivity(), "Inappropriate Format!", Toast.LENGTH_SHORT).show();
             }
         });
