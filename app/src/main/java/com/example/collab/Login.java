@@ -1,6 +1,7 @@
 package com.example.collab;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,13 @@ public class Login extends Fragment {
             String email = binding.username.getText().toString();
             String password = binding.password.getText().toString();
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(getActivity(), "Password cannot be empty", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                Toast.makeText(getActivity(), "Inappropriate Format!", Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                Toast.makeText(getActivity(), "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Authentication Successful!", Toast.LENGTH_SHORT).show();
+
+                NavHostFragment.findNavController(Login.this)
+                        .navigate(R.id.dashBoard);
             }
         });
     }
@@ -52,5 +55,4 @@ public class Login extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

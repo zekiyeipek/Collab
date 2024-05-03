@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +59,18 @@ public class EditProfileCompany extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.edit_profile_company, container, false);
+
+        View rootView = inflater.inflate(R.layout.edit_profile_student, container, false);
+
+        String linkedinLink = "https://www.linkedin.com/";
+        String githubLink = "https://github.com/";
+
+
+        EditText editGithubLink = rootView.findViewById(R.id.editGithubLink);
+        EditText editLinkedinLink = rootView.findViewById(R.id.editLinkedinLink);
+        editGithubLink.setText(githubLink);
+        editLinkedinLink.setText(linkedinLink);
+
+        return rootView;
     }
 }
