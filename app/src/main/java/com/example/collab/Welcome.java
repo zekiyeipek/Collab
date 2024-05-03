@@ -35,7 +35,7 @@ public class Welcome extends Fragment {
         );
         binding.buttonSecond.setOnClickListener(v ->
                 NavHostFragment.findNavController(Welcome.this)
-                        .navigate(R.id.chooseRoleFragment)
+                        .navigate(R.id.chooseRole)
         );
 
     }

@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.settingsFragment);
+            navController.navigate(R.id.settings);
             return true;
         }
         if (id == R.id.menu_edit_profile) {
@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
             // Navigate to the appropriate edit profile page based on the account type
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
             if (accountType.equals("student")) {
-                navController.navigate(R.id.editProfileStudentFragment);
+                navController.navigate(R.id.editProfileStudent);
             } else if (accountType.equals("company")) {
-                navController.navigate(R.id.editProfileCompanyFragment);
+                navController.navigate(R.id.editProfileCompany);
             } else {
                 // Handle other account types or show an error message
                 Snackbar.make(binding.getRoot(), "Invalid account type", Snackbar.LENGTH_SHORT).show();
@@ -96,22 +96,22 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.menu_create_team) {
             // Navigate to the create team page
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.createTeamFragment);
+            navController.navigate(R.id.createTeam);
             return true;
         }
         if (id == R.id.menu_companies) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.companiesFragment);
+            navController.navigate(R.id.companies);
             return true;
         }
         if (id == R.id.menu_my_projects) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.myProjectsFragment);
+            navController.navigate(R.id.myProjects);
             return true;
         }
         if (id == R.id.menu_my_tracking) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.myTrackingFragment);
+            navController.navigate(R.id.myTracking);
             return true;
         }
 
