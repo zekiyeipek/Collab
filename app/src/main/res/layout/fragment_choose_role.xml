@@ -33,30 +33,33 @@
         android:layout_marginTop="200dp"
         android:layout_marginLeft="10dp"/>
 
-    <CheckBox
-        android:id="@+id/checkBoxStudent"
+    <RadioButton
+        android:id="@+id/radioButtonStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="345dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginLeft="47dp"
+        android:text="Student"
         android:textColor="#8B8888"
         android:buttonTint="#8B8888"/>
 
-    <CheckBox
-        android:id="@+id/checkBoxCompany"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="377dp"
-        android:layout_marginLeft="39dp"
-        android:textColor="#8B8888"
-        android:buttonTint="#8B8888"/>
+    <RadioButton
+    android:id="@+id/radioButtonCompany"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="377dp"
+    android:layout_marginLeft="47dp"
+    android:text="Company"
+    android:textColor="#8B8888"
+    android:buttonTint="#8B8888"/>
 
-    <CheckBox
-        android:id="@+id/checkBoxAdvisor"
+    <RadioButton
+        android:id="@+id/radioButtonAdvisor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="409dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginLeft="47dp"
+        android:text="Advisor"
         android:textColor="#8B8888"
         android:buttonTint="#8B8888"/>
 

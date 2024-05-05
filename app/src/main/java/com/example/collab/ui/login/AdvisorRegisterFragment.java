@@ -62,6 +62,7 @@ public class AdvisorRegisterFragment extends Fragment {
             }
         });
 
+
         loginViewModel.getLoginFormState().observe(getViewLifecycleOwner(), new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
