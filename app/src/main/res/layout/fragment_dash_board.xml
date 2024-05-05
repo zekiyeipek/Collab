@@ -6,7 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DashBoardFragment"
+
     android:orientation="vertical">
+
+    android:background="@drawable/background">
+
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -63,6 +67,8 @@
             android:layout_height="40dp"
             android:src="@drawable/image_6"
             android:contentDescription="Icon" />
+            android:layout_marginTop="50dp"
+            android:text="@string/dashboard" />
 
 
         <TextView
@@ -250,6 +256,16 @@
 
 
 </LinearLayout>
+
+        <SearchView
+            android:layout_width="133dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="50dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"/>
+
+    </FrameLayout>
 
 
 

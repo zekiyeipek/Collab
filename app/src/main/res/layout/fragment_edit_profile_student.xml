@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileStudentFragment"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/image_3" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Photo"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="75dp"
+        android:textColor="#1F1F1F"
+        app:backgroundTint="#F0EFFA"/>
+
+    <FrameLayout
+        android:layout_width="378dp"
+        android:layout_height="321dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/edit_text_border">
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:hint="Your Name"
+            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_text_border" />
+
+        <!-- Date of Birth -->
+        <EditText
+            android:id="@+id/editTextDOB"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextName"
+            android:hint="Date of Birth"
+            android:inputType="date"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_text_border"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextDOB"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_text_border"/>
+
+        <!-- Student Number -->
+        <EditText
+            android:id="@+id/editTextStudentNumber"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextEmail"
+            android:hint="Student Number"
+            android:inputType="number"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_text_border"/>
+
+        <!-- Phone Number -->
+        <EditText
+            android:id="@+id/editTextPhoneNumber"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextStudentNumber"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_text_border"/>
+
+        <!-- Upload CV Button -->
+        <Button
+            android:id="@+id/buttonUploadCV"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPhoneNumber"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="250dp"
+            android:text="Upload CV"
+            app:backgroundTint="#F0EFFA"
+            android:textColor="#1F1F1F"/>
+
+        <!-- Edit Button -->
+        <Button
+            android:id="@+id/buttonEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonUploadCV"
+            android:text="Edit Profile"
+            android:layout_marginStart="200dp"
+            app:backgroundTint="#F0EFFA"
+            android:textColor="#1F1F1F"/>
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="26dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="260dp"
+            android:src="@drawable/image_4" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="378dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/edit_text_border">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:layout_marginStart="15dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/editAbout"
+            android:layout_width="205dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/editAbout"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/edit_text_border"
+            android:hint=""
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/editGithubLink"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editGithubLink"
+            android:hint="Github Link"
+            android:inputType="textWebEditText"
+            android:layout_marginTop="90dp"
+            android:layout_marginStart="95dp"
+            android:background="@drawable/edit_text_border"/>
+
+        <EditText
+            android:id="@+id/editLinkedinLink"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editLinkedinLink"
+            android:hint="Linkedin Link"
+            android:inputType="textWebEditText"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="95dp"
+            android:background="@drawable/edit_text_border"/>
+
+        <Button
+            android:id="@+id/buttonEditAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="10dp"
+            app:backgroundTint="#F0EFFA"
+            android:textColor="#1F1F1F"/>
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="75dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/image_5" />
+    </FrameLayout>
+
+
+
+</FrameLayout>

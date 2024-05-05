@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddMemberFragment"
+    android:background="@drawable/background">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="376dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:text="Add Team Member"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#3B3A3A"/>
+
+    <View
+        android:layout_width="376dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="15dp"
+        android:background="#000000" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/rectangle_11"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text|textPersonName" />
+
+
+    <EditText
+        android:id="@+id/editTextSurname"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Surname"
+        android:inputType="text|textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="380dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="University" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Year"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="78dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="610dp"
+        android:text="Continue?"
+        android:textColor="#3B3A3A"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/approveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Approve"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="650dp"
+        app:backgroundTint="#E3D845"/>
+
+    <Button
+        android:id="@+id/clearbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:layout_marginLeft="255dp"
+        android:layout_marginTop="650dp"
+        app:backgroundTint="#E3D845"/>
+
+
+</FrameLayout>
