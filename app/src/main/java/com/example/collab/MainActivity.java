@@ -134,7 +134,9 @@ public class MainActivity extends AppCompatActivity {
                 navController.navigate(R.id.editProfileStudentFragment);
             } else if (accountType.equals("company")) {
                 navController.navigate(R.id.editProfileCompanyFragment);
-            } else {
+            } else if (accountType.equals("advisor")) {
+                navController.navigate(R.id.editProfileAdvisorFragment);
+            }else {
                 // Handle other account types or show an error message
                 Snackbar.make(binding.getRoot(), "Invalid account type", Snackbar.LENGTH_SHORT).show();
             }
