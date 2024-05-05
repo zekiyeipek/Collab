@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/dashBoardFragment"
         android:name="com.example.collab.DashBoardFragment"
-        android:label="fragment_dash_board"
+        android:label="Dashboard"
         tools:layout="@layout/fragment_dash_board" />
     <fragment
         android:id="@+id/editProfileFragment"

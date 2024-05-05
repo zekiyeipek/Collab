@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Collab</string>
+    <string name="app_name">CampusCollab</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label">Welcome</string>
+    <string name="second_fragment_label">Login</string>
     <string name="getStarted">Get Started</string>
     <string name="chooseRole">Choose a Role</string>
     <string name="previous">Previous</string>
@@ -31,4 +31,6 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="card">Dashboard</string>
+    <string name="simple_and_easy_to_use_app">Welcome to Sema!</string>
 </resources>

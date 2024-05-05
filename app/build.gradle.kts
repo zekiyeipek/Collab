@@ -1,10 +1,15 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.collab"
     compileSdk = 34
+
+    packagingOptions {
+        excludes += "META-INF/androidx.cardview_cardview.version"
+    }
 
     defaultConfig {
         applicationId = "com.example.collab"
@@ -42,6 +47,9 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.preference)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.cardview.v7)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
