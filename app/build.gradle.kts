@@ -26,6 +26,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -34,6 +35,9 @@ android {
         viewBinding = true
     }
 }
+
+val retrofitVersion = "2.3.0"
+val rxJavaVersion = "2.1.1"
 
 dependencies {
 
@@ -47,8 +51,19 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
+    implementation(libs.cronet.embedded)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.10")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
+
 
 }

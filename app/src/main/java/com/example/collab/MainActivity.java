@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.example.collab.ApiCollab.ApiService;
+import com.example.collab.ApiCollab.GithubRepo;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -22,6 +25,14 @@ import com.example.collab.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -31,6 +42,42 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Retrofit nesnesi oluşturma
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.github.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
+        // ApiService nesnesini oluşturma
+        ApiService apiService = retrofit.create(ApiService.class);
+
+
+        // API isteğini gönderme
+        Call<List<GithubRepo>> call = apiService.listRepos("kullanıcıAdı");
+        call.enqueue(new Callback<List<GithubRepo>>() {
+            @Override
+            public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
+                if (response.isSuccessful()) {
+                    List<GithubRepo> repos = response.body();
+                    if (repos != null) {
+                        for (GithubRepo repo : repos) {
+                            Log.d("Repo", repo.getName());
+                        }
+                    }
+                } else {
+                    Log.e("Error", "Response not successful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<GithubRepo>> call, Throwable t) {
+                Log.e("Error", t.getMessage());
+            }
+        });
+
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -153,5 +200,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("user_data", MODE_PRIVATE);
         return preferences.getString("account_type", ""); // Replace "account_type" with the key you use to store the account type
     }
+
+
 
 }
