@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 /**
@@ -79,8 +80,41 @@ public class AddMemberFragment extends Fragment {
         String university = editTextUniversity.getText().toString();
         String year = editTextYear.getText().toString();
 
-        // You can now use these strings as needed
+        // Initialize buttons
+        Button approveButton = rootView.findViewById(R.id.approveButton);
+        Button clearButton = rootView.findViewById(R.id.clearbutton);
+
+        // Set onClickListener for approveButton
+        approveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Retrieve text when the "Approve" button is clicked
+                String name = editTextName.getText().toString();
+                String surname = editTextSurname.getText().toString();
+                String email = editTextEmailAddress.getText().toString();
+                String phone = editTextPhone.getText().toString();
+                String university = editTextUniversity.getText().toString();
+                String year = editTextYear.getText().toString();
+
+                // Now you can use these strings as needed, such as sending them to a server
+            }
+        });
+
+        // Set onClickListener for clearButton
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Clear text in all EditText fields when the "Clear" button is clicked
+                editTextName.setText("");
+                editTextSurname.setText("");
+                editTextEmailAddress.setText("");
+                editTextPhone.setText("");
+                editTextUniversity.setText("");
+                editTextYear.setText("");
+            }
+        });
 
         return rootView;
     }
+
 }
