@@ -1,5 +1,7 @@
 package com.example.collab;
 
+import static com.example.collab.R.id.textViewOpenDrawer;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -69,16 +71,7 @@ public class DashBoardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dash_board, container, false);
 
-        // Find the TextView within the fragment's layout
-        TextView textViewOpenDrawer = view.findViewById(R.id.textViewOpenDrawer);
 
-        // Set an OnClickListener to open the drawer when the TextView is clicked
-        textViewOpenDrawer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDrawer();
-            }
-        });
 
         return view;
     }
