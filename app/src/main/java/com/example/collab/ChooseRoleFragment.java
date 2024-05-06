@@ -3,10 +3,19 @@ package com.example.collab;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.example.collab.ui.login.StudentRegisterFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,9 @@ public class ChooseRoleFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RadioButton radioButtonStudent, radioButtonCompany, radioButtonAdvisor;
+    ImageButton submitButton;
 
     public ChooseRoleFragment() {
         // Required empty public constructor
@@ -58,7 +70,52 @@ public class ChooseRoleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_choose_role, container, false);
+        View view = inflater.inflate(R.layout.fragment_choose_role, container, false);
+
+        radioButtonStudent = view.findViewById(R.id.radioButtonStudent);
+        radioButtonCompany = view.findViewById(R.id.radioButtonCompany);
+        radioButtonAdvisor = view.findViewById(R.id.radioButtonAdvisor);
+        ImageButton submitButton = view.findViewById(R.id.submit_button);
+
+        // Set click listeners for each checkbox
+        radioButtonStudent.setOnClickListener(checkBoxClickListener);
+        radioButtonCompany.setOnClickListener(checkBoxClickListener);
+        radioButtonAdvisor.setOnClickListener(checkBoxClickListener);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (radioButtonStudent.isChecked() || radioButtonCompany.isChecked() || radioButtonAdvisor.isChecked()) {
+                    // Check which radio button is checked and navigate accordingly
+                    if (radioButtonStudent.isChecked()) {
+                        // Navigate to the StudentRegisterFragment using NavController
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.studentRegisterFragment);
+                    } else if (radioButtonCompany.isChecked()) {
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.companyRegisterFragment);
+                    } else if (radioButtonAdvisor.isChecked()) {
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.advisorRegisterFragment);
+                    }
+                } else {
+                    // Show a message that at least one radio button must be selected
+                    Toast.makeText(getActivity(), "Please select a role", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        return view;
     }
+
+    // Listener to handle checkbox clicks
+    private View.OnClickListener checkBoxClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // Uncheck all checkboxes
+            radioButtonStudent.setChecked(v.getId() == R.id.radioButtonStudent);
+            radioButtonCompany.setChecked(v.getId() == R.id.radioButtonCompany);
+            radioButtonAdvisor.setChecked(v.getId() == R.id.radioButtonAdvisor);
+        }
+    };
 }

@@ -7,10 +7,6 @@ android {
     namespace = "com.example.collab"
     compileSdk = 34
 
-    packagingOptions {
-        excludes += "META-INF/androidx.cardview_cardview.version"
-    }
-
     defaultConfig {
         applicationId = "com.example.collab"
         minSdk = 24
@@ -47,10 +43,15 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.preference)
-    implementation(libs.firebase.analytics)
+    implementation(libs.annotation)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.firebase.database)
     implementation(libs.firebase.auth)
-    implementation(libs.cardview.v7)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+
 }
