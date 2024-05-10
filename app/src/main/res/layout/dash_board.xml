@@ -64,9 +64,10 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/image_6"
-            android:contentDescription="Icon" />
+            android:contentDescription="Icon"
             android:layout_marginTop="50dp"
-            android:text="@string/dashboard" />
+            android:text="@string/dashboard"/>
+
 
 
         <TextView
