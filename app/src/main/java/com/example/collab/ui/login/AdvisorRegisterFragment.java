@@ -58,7 +58,7 @@ public class AdvisorRegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Navigate to the login page
-                Navigation.findNavController(view).navigate(R.id.SecondFragment);
+                Navigation.findNavController(view).navigate(R.id.login);
             }
         });
 

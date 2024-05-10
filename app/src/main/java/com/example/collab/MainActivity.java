@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Navigate to the login screen
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.FirstFragment);
+            navController.navigate(R.id.Welcome);
             finish(); // Optional: Finish the current activity to prevent going back to it using the back button
         } catch (Exception e) {
             e.printStackTrace();

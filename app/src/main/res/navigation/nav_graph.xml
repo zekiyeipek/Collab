@@ -3,41 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/Welcome">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/Welcome"
         android:name="com.example.collab.Welcome"
-        android:label="First Fragment"
+        android:label="Welcome"
         tools:layout="@layout/welcome">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/Login" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/Login"
         android:name="com.example.collab.Login"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/login">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/Welcome" />
         <action
             android:id="@+id/login2"
             app:destination="@id/dashBoard" />
     </fragment>
+
     <fragment
         android:id="@+id/dashBoard"
         android:name="com.example.collab.DashBoard"
         android:label="dash_board"
         tools:layout="@layout/dash_board" />
-    <fragment
-        android:id="@+id/editProfile"
-        android:name="com.example.collab.EditProfile"
-        android:label="edit_profile"
-        tools:layout="@layout/edit_profile" />
 
     <fragment
         android:id="@+id/createTeam"
