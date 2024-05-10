@@ -60,7 +60,6 @@ dependencies {
 
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
-    implementation(libs.cronet.embedded)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -72,13 +71,6 @@ dependencies {
     implementation("io.reactivex.rxjava2:rxjava:2.2.10")
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
-
-
-}
-
-
-
-
 
 
 }

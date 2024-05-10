@@ -145,9 +145,9 @@ public class MainActivity extends AppCompatActivity {
                 navController.navigate(R.id.editProfileStudent);
             } else if (accountType.equals("company")) {
 
-                navController.navigate(R.id.editProfileCompanyFragment);
+                navController.navigate(R.id.editProfileCompany);
             } else if (accountType.equals("advisor")) {
-                navController.navigate(R.id.editProfileAdvisorFragment);
+                navController.navigate(R.id.editProfileAdvisor);
             }else {
 
                 // Handle other account types or show an error message

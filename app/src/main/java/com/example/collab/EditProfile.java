@@ -6,10 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
@@ -51,7 +48,7 @@ public class EditProfileAdvisorFragment extends Fragment {
 <<<<<<<< HEAD:app/src/main/java/com/example/collab/EditProfile.java
         View view = inflater.inflate(R.layout.edit_profile, container, false);
 ========
-        View view = inflater.inflate(R.layout.fragment_edit_profile_advisor, container, false);
+        View view = inflater.inflate(R.layout.edit_profile_advisor, container, false);
 >>>>>>>> ipek_dev:app/src/main/java/com/example/collab/EditProfileAdvisorFragment.java
 
         // Initialize the ImageView
