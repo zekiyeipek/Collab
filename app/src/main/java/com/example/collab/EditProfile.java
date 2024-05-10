@@ -18,7 +18,11 @@ import androidx.fragment.app.Fragment;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+<<<<<<<< HEAD:app/src/main/java/com/example/collab/EditProfile.java
 public class EditProfile extends Fragment {
+========
+public class EditProfileAdvisorFragment extends Fragment {
+>>>>>>>> ipek_dev:app/src/main/java/com/example/collab/EditProfileAdvisorFragment.java
 
     // ImageView for displaying the selected image
     private ImageView imageView;
@@ -26,7 +30,11 @@ public class EditProfile extends Fragment {
     // Request code for selecting image
     private static final int PICK_IMAGE_REQUEST = 1;
 
+<<<<<<<< HEAD:app/src/main/java/com/example/collab/EditProfile.java
     public EditProfile() {
+========
+    public EditProfileAdvisorFragment() {
+>>>>>>>> ipek_dev:app/src/main/java/com/example/collab/EditProfileAdvisorFragment.java
         // Required empty public constructor
     }
 
@@ -40,7 +48,11 @@ public class EditProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<<< HEAD:app/src/main/java/com/example/collab/EditProfile.java
         View view = inflater.inflate(R.layout.edit_profile, container, false);
+========
+        View view = inflater.inflate(R.layout.fragment_edit_profile_advisor, container, false);
+>>>>>>>> ipek_dev:app/src/main/java/com/example/collab/EditProfileAdvisorFragment.java
 
         // Initialize the ImageView
         imageView = view.findViewById(R.id.imageView14);

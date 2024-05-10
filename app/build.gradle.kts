@@ -7,6 +7,10 @@ android {
     namespace = "com.example.collab"
     compileSdk = 34
 
+    packagingOptions {
+        excludes += "META-INF/androidx.cardview_cardview.version"
+    }
+
     defaultConfig {
         applicationId = "com.example.collab"
         minSdk = 24
@@ -47,9 +51,13 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.preference)
+
+    implementation(libs.firebase.analytics)
+    implementation(libs.cardview.v7)
     implementation(libs.annotation)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.cronet.embedded)
@@ -67,3 +75,11 @@ dependencies {
 
 
 }
+
+
+
+
+
+
+}
+

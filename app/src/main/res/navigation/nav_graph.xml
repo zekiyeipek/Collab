@@ -38,6 +38,7 @@
         android:name="com.example.collab.EditProfile"
         android:label="edit_profile"
         tools:layout="@layout/edit_profile" />
+
     <fragment
         android:id="@+id/createTeam"
         android:name="com.example.collab.CreateTeam"

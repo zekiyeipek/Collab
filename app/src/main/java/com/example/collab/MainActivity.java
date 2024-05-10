@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.example.collab.ApiCollab.ApiService;
-import com.example.collab.ApiCollab.GithubRepo;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,13 +17,19 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collab.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.List;
+
+
+import android.util.Log;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,11 +37,17 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
+
+import com.example.collab.ApiCollab.ApiService;
+import com.example.collab.ApiCollab.GithubRepo;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private DrawerLayout drawer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 .baseUrl("https://api.github.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
 
         // ApiService nesnesini oluşturma
         ApiService apiService = retrofit.create(ApiService.class);
@@ -97,7 +106,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
+
+
 
     //@Override
     //public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,8 +144,12 @@ public class MainActivity extends AppCompatActivity {
             if (accountType.equals("student")) {
                 navController.navigate(R.id.editProfileStudent);
             } else if (accountType.equals("company")) {
-                navController.navigate(R.id.editProfileCompany);
-            } else {
+
+                navController.navigate(R.id.editProfileCompanyFragment);
+            } else if (accountType.equals("advisor")) {
+                navController.navigate(R.id.editProfileAdvisorFragment);
+            }else {
+
                 // Handle other account types or show an error message
                 Snackbar.make(binding.getRoot(), "Invalid account type", Snackbar.LENGTH_SHORT).show();
             }

@@ -112,7 +112,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/approveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Approve"
@@ -121,10 +121,10 @@
         app:backgroundTint="#E3D845"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/clearbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remove"
+        android:text="Clear"
         android:layout_marginLeft="255dp"
         android:layout_marginTop="650dp"
         app:backgroundTint="#E3D845"/>
