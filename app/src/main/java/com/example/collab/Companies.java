@@ -62,7 +62,7 @@ public class Companies extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_add_member, container, false);
+        View rootView = inflater.inflate(R.layout.add_member, container, false);
 
         // Initialize EditText views
         editTextName = rootView.findViewById(R.id.editTextName);

@@ -91,10 +91,10 @@ public class ChooseRole extends Fragment {
                     if (radioButtonStudent.isChecked()) {
                         // Navigate to the StudentRegisterFragment using NavController
                         NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.studentRegisterFragment);
+                        navController.navigate(R.id.studentRegister);
                     } else if (radioButtonCompany.isChecked()) {
                         NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.companyRegisterFragment);
+                        navController.navigate(R.id.companyRegister);
                     } else if (radioButtonAdvisor.isChecked()) {
 
                         NavController navController = Navigation.findNavController(v);
