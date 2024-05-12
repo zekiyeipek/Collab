@@ -175,6 +175,18 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.menu_my_tracking) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
             navController.navigate(R.id.myTracking);
+            if (isProjectTrackingFinished()) {
+                String accountType = getAccountType();
+                // Check account type and navigate accordingly
+                if (accountType.equals("student")) {
+                    navController.navigate(R.id.studentEvaluation);
+                } else if (accountType.equals("company") || accountType.equals("advisor")) {
+                    navController.navigate(R.id.companyAndAdvisorEvaluation);
+                } else {
+                    // Handle other account types or show an error message
+                    Toast.makeText(this, "Invalid account type", Toast.LENGTH_SHORT).show();
+                }
+            }
             return true;
         }
 
@@ -217,6 +229,10 @@ public class MainActivity extends AppCompatActivity {
         return preferences.getString("account_type", ""); // Replace "account_type" with the key you use to store the account type
     }
 
+    private boolean isProjectTrackingFinished() {
+        SharedPreferences sharedPreferences = getSharedPreferences("project_tracking", MODE_PRIVATE);
+        return sharedPreferences.getBoolean("is_finished", false);
+    }
 
 
 }
