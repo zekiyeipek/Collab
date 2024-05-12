@@ -34,6 +34,17 @@ public class CompanyRegister extends Fragment {
     private CompanyRegisterBinding binding;
     private FirebaseAuth mAuth;
 
+
+    // Google ile giriş yapma işlemi
+    void onGoogleLoginClicked() {
+        // Google ile giriş yapma işlemini burada gerçekleştirin
+    }
+
+    // LinkedIn ile giriş yapma işlemi
+    void onLinkedInLoginClicked() {
+        // LinkedIn ile giriş yapma işlemini burada gerçekleştirin
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -50,6 +61,16 @@ public class CompanyRegister extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+        final Button googleLoginButton = binding.googleLoginButton;
+        googleLoginButton.setOnClickListener(v -> {
+            onGoogleLoginClicked();
+        });
+
+        final Button linkedinLoginButton = binding.linkedinLoginButton;
+        linkedinLoginButton.setOnClickListener(v -> {
+            onLinkedInLoginClicked();
+        });
 
         final EditText usernameEditText = binding.companyName;
         final EditText passwordEditText = binding.password;

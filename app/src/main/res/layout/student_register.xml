@@ -127,7 +127,7 @@
     <Button
         android:id="@+id/googleLoginButton"
         android:layout_width="247dp"
-        android:layout_height="38dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
         android:background="@drawable/button_border"
         android:text="Login with Google"
@@ -158,7 +158,7 @@
     <Button
         android:id="@+id/linkedinLoginButton"
         android:layout_width="247dp"
-        android:layout_height="38dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
         android:background="@drawable/button_border"
         android:text="Login with LinkedIn"
@@ -178,7 +178,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/linkedin_Icon"
+        android:src="@drawable/linkedin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

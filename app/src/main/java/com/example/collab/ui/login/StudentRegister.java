@@ -34,6 +34,18 @@ public class StudentRegister extends Fragment {
     private StudentRegisterBinding binding;
     private FirebaseAuth mAuth;
 
+
+    // Google ile giriş yapma işlemi
+    void onGoogleLoginClicked() {
+        // Google ile giriş yapma işlemini burada gerçekleştirin
+    }
+
+    // LinkedIn ile giriş yapma işlemi
+    void onLinkedInLoginClicked() {
+        // LinkedIn ile giriş yapma işlemini burada gerçekleştirin
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -55,6 +67,16 @@ public class StudentRegister extends Fragment {
         final EditText passwordEditText = binding.password;
         final Button registerButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
+
+        final Button googleLoginButton = binding.googleLoginButton;
+        googleLoginButton.setOnClickListener(v -> {
+            onGoogleLoginClicked();
+        });
+
+        final Button linkedinLoginButton = binding.linkedinLoginButton;
+        linkedinLoginButton.setOnClickListener(v -> {
+            onLinkedInLoginClicked();
+        });
 
         registerButton.setOnClickListener(v -> {
             String email = usernameEditText.getText().toString();
