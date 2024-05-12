@@ -105,4 +105,14 @@
         android:name="com.example.collab.EditProfileAdvisor"
         android:label="edit_profile_advisor"
         tools:layout="@layout/edit_profile_advisor" />
+    <fragment
+        android:id="@+id/studentEvaluation"
+        android:name="com.example.collab.StudentEvaluation"
+        android:label="student_evaluation"
+        tools:layout="@layout/student_evaluation" />
+    <fragment
+        android:id="@+id/companyAndAdvisorEvaluation"
+        android:name="com.example.collab.CompanyandAdvisorEvaluation"
+        android:label="company_and_advisor_evaluation"
+        tools:layout="@layout/company_and_advisor_evaluation" />
 </navigation>
