@@ -8,6 +8,7 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -22,22 +23,29 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import com.example.collab.R;
 import com.example.collab.databinding.AdvisorRegisterBinding;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class AdvisorRegister extends Fragment {
 
     private LoginViewModel loginViewModel;
     private AdvisorRegisterBinding binding;
     private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
+    private static final int RC_SIGN_IN = 123;
 
-    // Google ile giriş yapma işlemi
-    void onGoogleLoginClicked() {
-        // Google ile giriş yapma işlemini burada gerçekleştirin
-    }
 
     @Nullable
     @Override
@@ -46,9 +54,64 @@ public class AdvisorRegister extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = AdvisorRegisterBinding.inflate(inflater, container, false);
+        View view = inflater.inflate(R.layout.login, container, false);
         mAuth = FirebaseAuth.getInstance();
-        return binding.getRoot();
+
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+
+        // Google ile giriş butonu tanımlaması
+        view.findViewById(R.id.googleLoginButton).setOnClickListener(view1 -> signIn());
+
+        return view;
     }
+
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account.getIdToken());
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Toast.makeText(getActivity(), "Google sign in failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(getActivity(), task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(getActivity(), "Authentication success.", Toast.LENGTH_SHORT).show();
+                        // Burada Firebase kullanıcısının oturumunu açmak için gerekli işlemleri yapabilirsiniz.
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -61,11 +124,6 @@ public class AdvisorRegister extends Fragment {
         final Button registerButton = binding.signup;
         final ProgressBar loadingProgressBar = binding.loading;
 
-
-        final Button googleLoginButton = binding.googleLoginButton;
-        googleLoginButton.setOnClickListener(v -> {
-            onGoogleLoginClicked();
-        });
 
         registerButton.setOnClickListener(v -> {
             String email = usernameEditText.getText().toString();

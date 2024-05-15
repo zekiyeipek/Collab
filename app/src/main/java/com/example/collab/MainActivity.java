@@ -1,9 +1,11 @@
 package com.example.collab;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.example.collab.ApiCollab.LinkedInApi;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -41,6 +43,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.example.collab.ApiCollab.ApiService;
 import com.example.collab.ApiCollab.GithubRepo;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.auth.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Retrofit nesnesi oluşturma
-        Retrofit retrofit = new Retrofit.Builder()
+         /* Retrofit nesnesi oluşturma
+        retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -63,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         ApiService apiService = retrofit.create(ApiService.class);
 
 
-        // API isteğini gönderme
-        Call<List<GithubRepo>> call = apiService.listRepos("kullanıcıAdı");
+       API isteğini gönderme
+        Call<List<GithubRepo>> call = apiService.listRepos("Username");
         call.enqueue(new Callback<List<GithubRepo>>() {
             @Override
             public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
@@ -85,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Error", t.getMessage());
             }
         });
-
-
+        */
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
