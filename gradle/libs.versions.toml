@@ -21,6 +21,7 @@ lifecycleViewmodelKtx = "2.7.0"
 firebaseAuth = "23.0.0"
 firebaseDatabase = "21.0.0"
 cronetEmbedded = "119.6045.31"
+firebaseFirestore = "25.0.0"
 
 
 [libraries]
@@ -46,6 +47,7 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 cronet-embedded = { group = "org.chromium.net", name = "cronet-embedded", version.ref = "cronetEmbedded" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 
 
