@@ -54,7 +54,7 @@ public class AdvisorRegister extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = AdvisorRegisterBinding.inflate(inflater, container, false);
-        View view = inflater.inflate(R.layout.login, container, false);
+        View view = inflater.inflate(R.layout.advisor_register, container, false);
         mAuth = FirebaseAuth.getInstance();
 
         // Configure Google Sign In

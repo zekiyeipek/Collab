@@ -55,7 +55,7 @@ public class CompanyRegister extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = CompanyRegisterBinding.inflate(inflater, container, false);
-        View view = inflater.inflate(R.layout.login, container, false);
+        View view = inflater.inflate(R.layout.company_register, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         // Configure Google Sign In

@@ -54,7 +54,7 @@ public class StudentRegister extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = StudentRegisterBinding.inflate(inflater, container, false);
-        View view = inflater.inflate(R.layout.login, container, false);
+        View view = inflater.inflate(R.layout.student_register, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         // Configure Google Sign In

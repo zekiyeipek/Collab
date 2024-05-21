@@ -74,6 +74,6 @@ dependencies {
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
 
-
+    implementation ("com.google.firebase:firebase-firestore:24.0.0")
 }
 

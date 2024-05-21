@@ -64,7 +64,18 @@
         android:id="@+id/chooseRole"
         android:name="com.example.collab.ChooseRole"
         android:label="choose_role"
-        tools:layout="@layout/choose_role" />
+        tools:layout="@layout/choose_role" >
+        <action
+            android:id="@+id/action_chooseRole_to_studentRegister"
+            app:destination="@id/studentRegister" />
+        <action
+            android:id="@+id/action_chooseRole_to_companyRegister"
+            app:destination="@id/companyRegister" />
+        <action
+            android:id="@+id/action_chooseRole_to_advisorRegister"
+            app:destination="@id/advisorRegister" />
+    </fragment>
+
     <fragment
         android:id="@+id/studentRegister"
         android:name="com.example.collab.ui.login.StudentRegister"

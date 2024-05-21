@@ -32,7 +32,6 @@ public class ChooseRole extends Fragment {
     private String mParam2;
 
     RadioButton radioButtonStudent, radioButtonCompany, radioButtonAdvisor;
-    ImageButton submitButton;
 
     public ChooseRole() {
         // Required empty public constructor
@@ -83,25 +82,15 @@ public class ChooseRole extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
 
-
-
-                if (radioButtonStudent.isChecked() || radioButtonCompany.isChecked() || radioButtonAdvisor.isChecked()) {
-                    // Check which radio button is checked and navigate accordingly
-                    if (radioButtonStudent.isChecked()) {
-                        // Navigate to the StudentRegisterFragment using NavController
-                        NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.studentRegister);
-                    } else if (radioButtonCompany.isChecked()) {
-                        NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.companyRegister);
-                    } else if (radioButtonAdvisor.isChecked()) {
-
-                        NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.advisorRegister);
-                    }
+                if (radioButtonStudent.isChecked()) {
+                    navController.navigate(R.id.action_chooseRole_to_studentRegister);
+                } else if (radioButtonCompany.isChecked()) {
+                    navController.navigate(R.id.action_chooseRole_to_companyRegister);
+                } else if (radioButtonAdvisor.isChecked()) {
+                    navController.navigate(R.id.action_chooseRole_to_advisorRegister);
                 } else {
-                    // Show a message that at least one radio button must be selected
                     Toast.makeText(getActivity(), "Please select a role", Toast.LENGTH_SHORT).show();
                 }
             }
