@@ -41,7 +41,7 @@ public class Login extends Fragment {
     ) {
 
         binding = LoginBinding.inflate(inflater, container, false);
-        View view = inflater.inflate(R.layout.login, container, false);
+        View view = binding.getRoot();
 
         // Firebase Auth instance
         mAuth = FirebaseAuth.getInstance();
