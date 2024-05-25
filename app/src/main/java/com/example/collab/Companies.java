@@ -62,57 +62,7 @@ public class Companies extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.add_member, container, false);
-
-        // Initialize EditText views
-        editTextName = rootView.findViewById(R.id.editTextName);
-        editTextSurname = rootView.findViewById(R.id.editTextSurname);
-        editTextEmailAddress = rootView.findViewById(R.id.editTextTextEmailAddress);
-        editTextPhone = rootView.findViewById(R.id.editTextPhone);
-        editTextUniversity = rootView.findViewById(R.id.editTextText);
-        editTextYear = rootView.findViewById(R.id.editTextNumber);
-
-        // Example of getting text from EditText
-        String name = editTextName.getText().toString();
-        String surname = editTextSurname.getText().toString();
-        String email = editTextEmailAddress.getText().toString();
-        String phone = editTextPhone.getText().toString();
-        String university = editTextUniversity.getText().toString();
-        String year = editTextYear.getText().toString();
-
-        // Initialize buttons
-        Button approveButton = rootView.findViewById(R.id.approveButton);
-        Button clearButton = rootView.findViewById(R.id.clearbutton);
-
-        // Set onClickListener for approveButton
-        approveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retrieve text when the "Approve" button is clicked
-                String name = editTextName.getText().toString();
-                String surname = editTextSurname.getText().toString();
-                String email = editTextEmailAddress.getText().toString();
-                String phone = editTextPhone.getText().toString();
-                String university = editTextUniversity.getText().toString();
-                String year = editTextYear.getText().toString();
-
-                // Now you can use these strings as needed, such as sending them to a server
-            }
-        });
-
-        // Set onClickListener for clearButton
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Clear text in all EditText fields when the "Clear" button is clicked
-                editTextName.setText("");
-                editTextSurname.setText("");
-                editTextEmailAddress.setText("");
-                editTextPhone.setText("");
-                editTextUniversity.setText("");
-                editTextYear.setText("");
-            }
-        });
+        View rootView = inflater.inflate(R.layout.companies, container, false);
 
         return rootView;
     }
