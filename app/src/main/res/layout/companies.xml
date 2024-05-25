@@ -42,7 +42,7 @@
         android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/info1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
@@ -51,7 +51,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/companyInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
@@ -89,7 +89,7 @@
             android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/info2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
@@ -98,7 +98,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/companyInfo2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
@@ -136,7 +136,7 @@
             android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/info3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
@@ -145,7 +145,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/companyInfo3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
@@ -184,7 +184,7 @@
             android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/info4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
@@ -193,7 +193,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/companyInfo4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
