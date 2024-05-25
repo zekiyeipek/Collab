@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/rectangle_14"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"/>
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Netflix"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="-200dp"
         android:textSize="20dp"/>
 
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="25dp"
             android:text="Entertainment, Streaming Services"
             android:textStyle="bold" />
 
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="45dp"
             android:text="Netflix is a global streaming platform that offers a wide variety of movies, TV shows, documentaries, and original content." />
 
         <Button
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginLeft="-140dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="120dp"
         android:text="View Profile" />
     </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rectangle_14"
+            android:src="@drawable/rectangle_16"
             android:layout_marginTop="100dp"
             android:layout_marginLeft="20dp"/>
 
@@ -83,7 +83,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Netflix"
+            android:text="Amazon"
             android:layout_marginTop="100dp"
             android:layout_marginRight="-200dp"
             android:textSize="20dp"/>
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="120dp"
-            android:text="Entertainment, Streaming Services"
+            android:text="E-Commerce, Cloud Computing"
             android:textStyle="bold" />
 
         <TextView
@@ -103,14 +103,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
             android:layout_marginTop="150dp"
-            android:text="Netflix is a global streaming platform that offers a wide variety of movies, TV shows, documentaries, and original content." />
+            android:text="Amazon is a multinational technology company known for its vast e-commerce platform, cloud computing services and digital streaming services." />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginLeft="-140dp"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="230dp"
             android:text="View Profile" />
     </LinearLayout>
 
@@ -122,7 +122,7 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rectangle_14"
+            android:src="@drawable/rectangle_17"
             android:layout_marginTop="100dp"
             android:layout_marginLeft="20dp"/>
 
@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="120dp"
-            android:text="Entertainment, Streaming Services"
+            android:text="Technology, Consumer Electronics"
             android:textStyle="bold" />
 
         <TextView
@@ -150,8 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
             android:layout_marginTop="150dp"
-            android:text="Netflix is a global streaming platform that offers a wide variety of movies, TV shows, documentaries, and original content." />
-
+            android:text="Apple is a technology giant renowned for its consumer electronics, software, and services." />
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
@@ -170,7 +169,7 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rectangle_14"
+            android:src="@drawable/rectangle_18"
             android:layout_marginTop="100dp"
             android:layout_marginLeft="20dp"/>
 
@@ -189,7 +188,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="120dp"
-            android:text="Entertainment, Streaming Services"
+            android:text=" Social Media, Technology"
             android:textStyle="bold" />
 
         <TextView
@@ -198,14 +197,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-220dp"
             android:layout_marginTop="150dp"
-            android:text="Netflix is a global streaming platform that offers a wide variety of movies, TV shows, documentaries, and original content." />
+            android:text="Instagram, owned by Facebook, is a widely used social media platform focused on photo and video sharing."/>
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginLeft="-140dp"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="220dp"
             android:text="View Profile" />
     </LinearLayout>
 
