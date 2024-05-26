@@ -18,6 +18,9 @@ public class StudentRegisterActivity extends AppCompatActivity {
 
     private EditText mEmailField;
     private EditText mPasswordField;
+    private EditText mNameField;
+    private EditText mDateOfBirthField;
+    private EditText mStudentNumberField;
     private Button mRegisterButton;
     private FirebaseAuth mAuth;
 
@@ -30,35 +33,59 @@ public class StudentRegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // View'leri bağla
+        mNameField = findViewById(R.id.name);
         mEmailField = findViewById(R.id.username);
         mPasswordField = findViewById(R.id.password);
+        mDateOfBirthField = findViewById(R.id.dateOfBirth);
+        mStudentNumberField = findViewById(R.id.studentNumber);
         mRegisterButton = findViewById(R.id.login);
 
         // Kayıt butonuna tıklama olayını ekle
+        // Register button click listener
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mEmailField.getText().toString();
-                String password = mPasswordField.getText().toString();
-
-                // Firebase Authentication ile kullanıcı kaydı yap
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(StudentRegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Kullanıcı başarıyla kaydedildi
-                                    Log.d("RegisterActivity", "createUserWithEmail:success");
-                                    Toast.makeText(StudentRegisterActivity.this, "Kayıt başarılı!", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    // Kayıt sırasında bir hata oluştu
-                                    Log.w("RegisterActivity", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(StudentRegisterActivity.this, "Kayıt başarısız, lütfen tekrar deneyin.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                registerUser();
             }
         });
+    }
+    private void registerUser() {
+        String name = mNameField.getText().toString().trim();
+        String email = mEmailField.getText().toString().trim();
+        String password = mPasswordField.getText().toString().trim();
+        String dateOfBirth = mDateOfBirthField.getText().toString().trim();
+        String studentNumber = mStudentNumberField.getText().toString().trim();
+
+        // Validate inputs
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || dateOfBirth.isEmpty() || studentNumber.isEmpty()) {
+            Toast.makeText(StudentRegisterActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Register user with Firebase Authentication
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(StudentRegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // User successfully registered
+                            Log.d("RegisterActivity", "createUserWithEmail:success");
+                            Toast.makeText(StudentRegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+
+                            // Here you can add additional steps, such as saving other user information to Firestore or Realtime Database
+                            // For example:
+                            // saveAdditionalUserInfo(name, dateOfBirth, studentNumber);
+                        } else {
+                            // If sign in fails, display a message to the user
+                            Log.w("RegisterActivity", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(StudentRegisterActivity.this, "Registration failed. " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    // Example method to save additional user information
+    private void saveAdditionalUserInfo(String name, String dateOfBirth, String studentNumber) {
+        // Implement this method to save additional user information to Firestore or Realtime Database
     }
 }

@@ -28,35 +28,34 @@ public class CompanyRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.company_register);
 
-        // Firebase Authentication instance'ı al
+        // Get Firebase Authentication instance
         mAuth = FirebaseAuth.getInstance();
 
-        // View'leri bağla
+        // Initialize views
         mEmailField = findViewById(R.id.email);
         mPasswordField = findViewById(R.id.password);
         mRegisterButton = findViewById(R.id.login);
 
-        // Kayıt butonuna tıklama olayını ekle
+        // Set click listener for register button
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = mEmailField.getText().toString();
                 String password = mPasswordField.getText().toString();
 
-                // Firebase Authentication ile kullanıcı kaydı yap
+                // Register user with Firebase Authentication
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(CompanyRegisterActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Kullanıcı başarıyla kaydedildi
+                                    // User successfully registered
                                     Log.d("RegisterActivity", "createUserWithEmail:success");
-                                    Toast.makeText(CompanyRegisterActivity.this, "Kayıt başarılı!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(CompanyRegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // Kayıt sırasında bir hata oluştu
+                                    // If sign in fails, display a message to the user
                                     Log.w("RegisterActivity", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(CompanyRegisterActivity.this, "Kayıt başarısız, lütfen tekrar deneyin.",
-                                            Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(CompanyRegisterActivity.this, "Registration failed. " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

@@ -34,7 +34,7 @@ public class AdvisorRegisterActivity extends AppCompatActivity {
         // View'leri bağla
         mEmailField = findViewById(R.id.email);
         mPasswordField = findViewById(R.id.password);
-        mRegisterButton = findViewById(R.id.login);
+        mRegisterButton = findViewById(R.id.signup);
 
         // Kayıt butonuna tıklama olayını ekle
         mRegisterButton.setOnClickListener(new View.OnClickListener() {

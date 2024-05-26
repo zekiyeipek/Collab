@@ -43,6 +43,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.example.collab.ApiCollab.ApiService;
 import com.example.collab.ApiCollab.GithubRepo;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.auth.User;
 
@@ -56,40 +57,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-         /* Retrofit nesnesi oluşturma
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        // ApiService nesnesini oluşturma
-        ApiService apiService = retrofit.create(ApiService.class);
-
-
-       API isteğini gönderme
-        Call<List<GithubRepo>> call = apiService.listRepos("Username");
-        call.enqueue(new Callback<List<GithubRepo>>() {
-            @Override
-            public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
-                if (response.isSuccessful()) {
-                    List<GithubRepo> repos = response.body();
-                    if (repos != null) {
-                        for (GithubRepo repo : repos) {
-                            Log.d("Repo", repo.getName());
-                        }
-                    }
-                } else {
-                    Log.e("Error", "Response not successful");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<GithubRepo>> call, Throwable t) {
-                Log.e("Error", t.getMessage());
-            }
-        });
-        */
+        FirebaseApp.initializeApp(this);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

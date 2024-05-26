@@ -119,7 +119,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="66dp"
-        android:enabled="false"
+        android:enabled="true"
         android:text="Signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -226,8 +226,13 @@
         android:text="Signup for  Companies"
         android:textSize="25dp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="118dp" />
+        tools:layout_editor_absoluteY="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

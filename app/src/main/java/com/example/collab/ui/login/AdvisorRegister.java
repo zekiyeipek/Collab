@@ -40,12 +40,10 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class AdvisorRegister extends Fragment {
 
-    private LoginViewModel loginViewModel;
     private AdvisorRegisterBinding binding;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 123;
-
 
     @Nullable
     @Override
@@ -54,7 +52,6 @@ public class AdvisorRegister extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = AdvisorRegisterBinding.inflate(inflater, container, false);
-        View view = inflater.inflate(R.layout.advisor_register, container, false);
         mAuth = FirebaseAuth.getInstance();
 
         // Configure Google Sign In
@@ -65,10 +62,18 @@ public class AdvisorRegister extends Fragment {
 
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
-        // Google ile giriş butonu tanımlaması
-        view.findViewById(R.id.googleLoginButton).setOnClickListener(view1 -> signIn());
+        return binding.getRoot();
+    }
 
-        return view;
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Set click listener for Google Sign-In button
+        binding.googleLoginButton.setOnClickListener(v -> signIn());
+
+        // Set click listener for register button
+        binding.signup.setOnClickListener(v -> registerUser());
     }
 
     private void signIn() {
@@ -76,6 +81,27 @@ public class AdvisorRegister extends Fragment {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    private void registerUser() {
+        String email = binding.email.getText().toString();
+        String password = binding.password.getText().toString();
+
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            Toast.makeText(getActivity(), "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(getActivity(), task -> {
+                        if (task.isSuccessful()) {
+                            // Sign up success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(getActivity(), "Registration Successful!", Toast.LENGTH_SHORT).show();
+                            Navigation.findNavController(requireView()).navigate(R.id.dashBoard);
+                        } else {
+                            // If sign up fails, display a message to the user.
+                            Toast.makeText(getActivity(), "Registration failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -103,49 +129,11 @@ public class AdvisorRegister extends Fragment {
                         // Sign in success, update UI with the signed-in user's information
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(getActivity(), "Authentication success.", Toast.LENGTH_SHORT).show();
-                        // Burada Firebase kullanıcısının oturumunu açmak için gerekli işlemleri yapabilirsiniz.
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
-
-        final EditText usernameEditText = binding.email;
-        final EditText passwordEditText = binding.password;
-        final Button registerButton = binding.signup;
-        final ProgressBar loadingProgressBar = binding.loading;
-
-
-        registerButton.setOnClickListener(v -> {
-            String email = usernameEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
-
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                Toast.makeText(getActivity(), "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
-            } else {
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(getActivity(), task -> {
-                            if (task.isSuccessful()) {
-                                // Sign up success, update UI with the signed-in user's information
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Toast.makeText(getActivity(), "Registration Successful!", Toast.LENGTH_SHORT).show();
-                                Navigation.findNavController(view).navigate(R.id.dashBoard);
-                            } else {
-                                // If sign up fails, display a message to the user.
-                                Toast.makeText(getActivity(), "Registration failed.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
     }
 
     @Override
