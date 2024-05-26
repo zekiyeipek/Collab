@@ -112,7 +112,7 @@ public class AddMember extends Fragment {
         membersRef.push().setValue(member);
 
         NavController navController = Navigation.findNavController(requireView());
-        navController.navigate(R.id.dashBoard);
+        navController.navigate(R.id.createTeam);
 
         // After getting the values, you can perform database operations
         // For example, you can use Firebase Realtime Database or Firestore to save the member details
