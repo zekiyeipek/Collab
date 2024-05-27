@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.content.Intent;
@@ -64,6 +65,13 @@ public class CompanyRegister extends Fragment {
         binding.googleLoginButton.setOnClickListener(v -> signIn());
 
         binding.login.setOnClickListener(v -> registerUser());
+
+        // Set click listener for loginText TextView
+        TextView loginText = view.findViewById(R.id.loginText);
+        loginText.setOnClickListener(v -> {
+            // Navigate to the login page when loginText is clicked
+            Navigation.findNavController(requireView()).navigate(R.id.Login);
+        });
     }
 
     private void initGoogleSignIn() {

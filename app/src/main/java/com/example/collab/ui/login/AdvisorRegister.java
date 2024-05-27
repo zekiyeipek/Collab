@@ -74,6 +74,13 @@ public class AdvisorRegister extends Fragment {
 
         // Set click listener for register button
         binding.signup.setOnClickListener(v -> registerUser());
+
+        // Set click listener for loginText TextView
+        TextView loginText = view.findViewById(R.id.loginText);
+        loginText.setOnClickListener(v -> {
+            // Navigate to the login page when loginText is clicked
+            Navigation.findNavController(requireView()).navigate(R.id.Login);
+        });
     }
 
     private void signIn() {
@@ -84,10 +91,16 @@ public class AdvisorRegister extends Fragment {
     private void registerUser() {
         String email = binding.email.getText().toString();
         String password = binding.password.getText().toString();
+        String name = binding.name.getText().toString();
+        String contactNumber = binding.contactNumber.getText().toString();
+        String department = binding.department.getText().toString();
+        String universityName = binding.universityName.getText().toString();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(getActivity(), "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
-        } else {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(contactNumber) || TextUtils.isEmpty(department) || TextUtils.isEmpty(universityName)) {
+            Toast.makeText(getActivity(), "All fields are required", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(getActivity(), task -> {
                         if (task.isSuccessful()) {
@@ -100,7 +113,6 @@ public class AdvisorRegister extends Fragment {
                             Toast.makeText(getActivity(), "Registration failed.", Toast.LENGTH_SHORT).show();
                         }
                     });
-        }
     }
 
     @Override
