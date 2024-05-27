@@ -75,5 +75,13 @@
         android:layout_marginTop="472dp"
         android:src="@drawable/confirm_button" />
 
+    <ImageButton
+        android:id="@+id/cancel_button"
+        android:layout_width="155dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="472dp"
+        android:src="@drawable/cancel_button" />
+
 
 </FrameLayout>

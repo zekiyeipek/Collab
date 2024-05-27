@@ -73,6 +73,8 @@ public class ChooseRole extends Fragment {
         radioButtonCompany = view.findViewById(R.id.radioButtonCompany);
         radioButtonAdvisor = view.findViewById(R.id.radioButtonAdvisor);
         ImageButton submitButton = view.findViewById(R.id.submit_button);
+        ImageButton cancelButton = view.findViewById(R.id.cancel_button); // Assuming the ID of the cancel button is cancel_button
+
 
         // Set click listeners for each checkbox
         radioButtonStudent.setOnClickListener(checkBoxClickListener);
@@ -93,6 +95,14 @@ public class ChooseRole extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Please select a role", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.Login); // Assuming the ID of the action to navigate to the login page is action_chooseRole_to_login
             }
         });
 
