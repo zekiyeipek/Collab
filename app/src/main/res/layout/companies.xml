@@ -130,7 +130,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Netflix"
+            android:text="Apple"
             android:layout_marginTop="100dp"
             android:layout_marginRight="-200dp"
             android:textSize="20dp"/>
@@ -177,7 +177,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Netflix"
+            android:text="Instagram"
             android:layout_marginTop="100dp"
             android:layout_marginRight="-200dp"
             android:textSize="20dp"/>
