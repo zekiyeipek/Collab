@@ -129,6 +129,11 @@ public class StudentRegister extends Fragment {
             Toast.makeText(getActivity(), "Please enter a valid date of birth in YYYY-MM-DD format", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (!isValidPassword(password)) {
+            Toast.makeText(getActivity(), "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a digit, and a special character.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(requireActivity(), task -> {
                         if (task.isSuccessful()) {
@@ -161,6 +166,22 @@ public class StudentRegister extends Fragment {
         } catch (ParseException e) {
             return false;
         }
+    }
+    private boolean isValidPassword(String password) {
+        if (password.length() < 8) {
+            return false;
+        }
+        boolean hasUppercase = false;
+        boolean hasLowercase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) hasUppercase = true;
+            if (Character.isLowerCase(c)) hasLowercase = true;
+            if (Character.isDigit(c)) hasDigit = true;
+            if (!Character.isLetterOrDigit(c)) hasSpecialChar = true;
+        }
+        return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
     }
 
     @Override
