@@ -38,6 +38,12 @@ import com.example.collab.R;
 import com.example.collab.databinding.StudentRegisterBinding;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class StudentRegister extends Fragment {
 
     private StudentRegisterBinding binding;
@@ -110,10 +116,19 @@ public class StudentRegister extends Fragment {
     private void registerUser() {
         String email = binding.username.getText().toString();
         String password = binding.password.getText().toString();
+        String studentNumber = binding.studentNumber.getText().toString().trim();
+        String dateOfBirth = binding.dateOfBirth.getText().toString().trim();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(getActivity(), "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
-        } else {
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) ||
+                TextUtils.isEmpty(studentNumber) || TextUtils.isEmpty(dateOfBirth)) {
+            Toast.makeText(getActivity(), "All fields are required", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!isValidDateOfBirth(dateOfBirth)) {
+            Toast.makeText(getActivity(), "Please enter a valid date of birth in YYYY-MM-DD format", Toast.LENGTH_SHORT).show();
+            return;
+        }
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(requireActivity(), task -> {
                         if (task.isSuccessful()) {
@@ -124,6 +139,27 @@ public class StudentRegister extends Fragment {
                             Toast.makeText(getActivity(), "Registration failed.", Toast.LENGTH_SHORT).show();
                         }
                     });
+    }
+
+    private boolean isValidDateOfBirth(String dateOfBirth) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        sdf.setLenient(false);
+        try {
+            Date date = sdf.parse(dateOfBirth);
+            if (date == null) {
+                return false;
+            }
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+
+            int year = cal.get(Calendar.YEAR);
+            int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+            // Date should not be in the future or more than 100 years ago
+            return year <= currentYear && year >= (currentYear - 100);
+        } catch (ParseException e) {
+            return false;
         }
     }
 
