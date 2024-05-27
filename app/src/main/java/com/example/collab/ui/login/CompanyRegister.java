@@ -108,12 +108,29 @@ public class CompanyRegister extends Fragment {
     }
 
     private void registerUser() {
+        String companyName = binding.companyName.getText().toString().trim();
         String email = binding.email.getText().toString();
         String password = binding.password.getText().toString();
+        String contactNumber = binding.contactNumber.getText().toString().trim();
+        String addressInformation = binding.adressInformation.getText().toString().trim();
+        String registrationNumber = binding.registrationNumber.getText().toString().trim();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(getActivity(), "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
-        } else {
+        if (TextUtils.isEmpty(companyName) || TextUtils.isEmpty(email) ||
+                TextUtils.isEmpty(password) || TextUtils.isEmpty(contactNumber) ||
+                TextUtils.isEmpty(addressInformation) || TextUtils.isEmpty(registrationNumber)) {
+            Toast.makeText(getActivity(), "All fields are required", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(getActivity(), "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validate password requirements
+        if (!isValidPassword(password)) {
+            Toast.makeText(getActivity(), "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a digit, and a special character.", Toast.LENGTH_LONG).show();
+            return;
+        }
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(requireActivity(), task -> {
                         if (task.isSuccessful()) {
@@ -123,7 +140,23 @@ public class CompanyRegister extends Fragment {
                             Toast.makeText(getActivity(), "Registration failed.", Toast.LENGTH_SHORT).show();
                         }
                     });
+    }
+
+    private boolean isValidPassword(String password) {
+        if (password.length() < 8) {
+            return false;
         }
+        boolean hasUppercase = false;
+        boolean hasLowercase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) hasUppercase = true;
+            if (Character.isLowerCase(c)) hasLowercase = true;
+            if (Character.isDigit(c)) hasDigit = true;
+            if (!Character.isLetterOrDigit(c)) hasSpecialChar = true;
+        }
+        return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
     }
 
     @Override
