@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/companyLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/company_logo"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/companyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Şirket Adı"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resmi Bilgiler"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/companyFounded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kuruluş Tarihi: " />
+
+        <TextView
+            android:id="@+id/companyType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Şirket Türü: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adres"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/companyAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adres: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefon Numarası"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/companyPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefon: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="İnsan Kaynakları"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/companyHRInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="İnsan Kaynakları Bilgisi: " />
+
+        <Button
+            android:id="@+id/btnZoomMeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zoom Görüşmesi Ayarla"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btnZoomMeeting2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listeye Ekle"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>
