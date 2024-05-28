@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 /**
@@ -30,8 +31,7 @@ public class ChooseRole extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    CheckBox checkBoxStudent, checkBoxCompany, checkBoxAdvisor;
-    Button submitButton;
+    RadioButton radioButtonStudent, radioButtonCompany, radioButtonAdvisor;
 
     public ChooseRole() {
         // Required empty public constructor
@@ -69,36 +69,40 @@ public class ChooseRole extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.choose_role, container, false);
 
-        checkBoxStudent = view.findViewById(R.id.checkBoxStudent);
-        checkBoxCompany = view.findViewById(R.id.checkBoxCompany);
-        checkBoxAdvisor = view.findViewById(R.id.checkBoxAdvisor);
+        radioButtonStudent = view.findViewById(R.id.radioButtonStudent);
+        radioButtonCompany = view.findViewById(R.id.radioButtonCompany);
+        radioButtonAdvisor = view.findViewById(R.id.radioButtonAdvisor);
         ImageButton submitButton = view.findViewById(R.id.submit_button);
+        ImageButton cancelButton = view.findViewById(R.id.cancel_button); // Assuming the ID of the cancel button is cancel_button
+
 
         // Set click listeners for each checkbox
-        checkBoxStudent.setOnClickListener(checkBoxClickListener);
-        checkBoxCompany.setOnClickListener(checkBoxClickListener);
-        checkBoxAdvisor.setOnClickListener(checkBoxClickListener);
+        radioButtonStudent.setOnClickListener(checkBoxClickListener);
+        radioButtonCompany.setOnClickListener(checkBoxClickListener);
+        radioButtonAdvisor.setOnClickListener(checkBoxClickListener);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkBoxStudent.isChecked() || checkBoxCompany.isChecked() || checkBoxAdvisor.isChecked()) {
-                    // Check which checkbox is checked and navigate accordingly
-                    if (checkBoxStudent.isChecked()) {
-                        // Navigate to the StudentRegister using NavController
-                        NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.studentRegister);
-                    } else if (checkBoxCompany.isChecked()) {
-                        NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.companyRegister);
-                    } else if (checkBoxAdvisor.isChecked()) {
-                        NavController navController = Navigation.findNavController(v);
-                        navController.navigate(R.id.advisorRegister);
-                    }
+                NavController navController = Navigation.findNavController(v);
+
+                if (radioButtonStudent.isChecked()) {
+                    navController.navigate(R.id.action_chooseRole_to_studentRegister);
+                } else if (radioButtonCompany.isChecked()) {
+                    navController.navigate(R.id.action_chooseRole_to_companyRegister);
+                } else if (radioButtonAdvisor.isChecked()) {
+                    navController.navigate(R.id.action_chooseRole_to_advisorRegister);
                 } else {
-                    // Show a message that at least one checkbox must be selected
-                    Toast.makeText(getActivity(), "Please select at least one role", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please select a role", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.Login); // Assuming the ID of the action to navigate to the login page is action_chooseRole_to_login
             }
         });
 
@@ -110,9 +114,9 @@ public class ChooseRole extends Fragment {
         @Override
         public void onClick(View v) {
             // Uncheck all checkboxes
-            checkBoxStudent.setChecked(v.getId() == R.id.checkBoxStudent);
-            checkBoxCompany.setChecked(v.getId() == R.id.checkBoxCompany);
-            checkBoxAdvisor.setChecked(v.getId() == R.id.checkBoxAdvisor);
+            radioButtonStudent.setChecked(v.getId() == R.id.radioButtonStudent);
+            radioButtonCompany.setChecked(v.getId() == R.id.radioButtonCompany);
+            radioButtonAdvisor.setChecked(v.getId() == R.id.radioButtonAdvisor);
         }
     };
 }

@@ -1,11 +1,11 @@
 package com.example.collab;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.example.collab.ApiCollab.ApiService;
-import com.example.collab.ApiCollab.GithubRepo;
+import com.example.collab.ApiCollab.LinkedInApi;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,13 +19,19 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collab.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.List;
+
+
+import android.util.Log;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,51 +39,25 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
+
+import com.example.collab.ApiCollab.ApiService;
+import com.example.collab.ApiCollab.GithubRepo;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.auth.User;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private DrawerLayout drawer;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Retrofit nesnesi oluşturma
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-
-        // ApiService nesnesini oluşturma
-        ApiService apiService = retrofit.create(ApiService.class);
-
-
-        // API isteğini gönderme
-        Call<List<GithubRepo>> call = apiService.listRepos("kullanıcıAdı");
-        call.enqueue(new Callback<List<GithubRepo>>() {
-            @Override
-            public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
-                if (response.isSuccessful()) {
-                    List<GithubRepo> repos = response.body();
-                    if (repos != null) {
-                        for (GithubRepo repo : repos) {
-                            Log.d("Repo", repo.getName());
-                        }
-                    }
-                } else {
-                    Log.e("Error", "Response not successful");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<GithubRepo>> call, Throwable t) {
-                Log.e("Error", t.getMessage());
-            }
-        });
-
-
+        FirebaseApp.initializeApp(this);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -89,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            getSupportActionBar().setTitle(R.string.app_name);
+        });
+
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +81,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
+
+
 
     //@Override
     //public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,8 +119,12 @@ public class MainActivity extends AppCompatActivity {
             if (accountType.equals("student")) {
                 navController.navigate(R.id.editProfileStudent);
             } else if (accountType.equals("company")) {
+
                 navController.navigate(R.id.editProfileCompany);
-            } else {
+            } else if (accountType.equals("advisor")) {
+                navController.navigate(R.id.editProfileAdvisor);
+            }else {
+
                 // Handle other account types or show an error message
                 Snackbar.make(binding.getRoot(), "Invalid account type", Snackbar.LENGTH_SHORT).show();
             }
@@ -188,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Navigate to the login screen
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.FirstFragment);
+            navController.navigate(R.id.Welcome);
             finish(); // Optional: Finish the current activity to prevent going back to it using the back button
         } catch (Exception e) {
             e.printStackTrace();

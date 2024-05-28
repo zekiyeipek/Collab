@@ -1,13 +1,18 @@
 package com.example.collab;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +20,8 @@ import android.widget.EditText;
  * create an instance of this fragment.
  */
 public class EditProfileStudent extends Fragment {
+
+    private static final int PICK_PDF_FILE = 1;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,6 +77,26 @@ public class EditProfileStudent extends Fragment {
         editGithubLink.setText(githubLink);
         editLinkedinLink.setText(linkedinLink);
 
+        Button uploadCVButton = rootView.findViewById(R.id.buttonUploadCV);
+        uploadCVButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+                chooseFile.setType("application/pdf");
+                chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+                startActivityForResult(chooseFile, PICK_PDF_FILE);
+            }
+        });
+
         return rootView;
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_PDF_FILE && resultCode == getActivity().RESULT_OK) {
+            Uri selectedPdf = data.getData();
+            // selectedPdf Uri'sini kullanarak PDF dosyasını işleyin
+            Toast.makeText(getActivity(), "Selected file: " + selectedPdf.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
