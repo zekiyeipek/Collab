@@ -28,23 +28,25 @@
 
         <Button
             android:id="@+id/button_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="524dp"
+            android:layout_width="225dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="520dp"
             android:text="@string/getStarted"
+            android:textColor="@color/white"
+            app:backgroundTint="#3B3A3A"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:backgroundTint="#3B3A3A"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_second"
-            android:layout_width="140dp"
-            android:layout_height="42dp"
+            android:layout_width="179dp"
+            android:layout_height="41dp"
             android:layout_marginTop="584dp"
-            android:background="#10FF0000"
+            android:background="#00000000"
             android:text="@string/register"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

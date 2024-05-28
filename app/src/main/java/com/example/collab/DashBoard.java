@@ -1,6 +1,6 @@
 package com.example.collab;
 
-import static com.example.collab.R.id.textViewOpenDrawer;
+
 
 import android.os.Bundle;
 

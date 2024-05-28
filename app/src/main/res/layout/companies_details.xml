@@ -15,7 +15,8 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:contentDescription="@string/company_logo"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            android:text="@string/company_logo"/>
 
         <TextView
             android:id="@+id/companyName"
