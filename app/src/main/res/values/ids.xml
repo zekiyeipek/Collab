@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="textViewOpenDrawer" type="id" />
-    <item name="item_image" type="id" />
-    <item name="item_text" type="id" />
+
+    <item name="companiesDetails" type="id" />
+
+
 </resources>
