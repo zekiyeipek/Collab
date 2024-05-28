@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.collab.Welcome"
-        android:label="Welcome"
+        android:label="First Fragment"
         tools:layout="@layout/welcome">
 
         <action
@@ -48,9 +48,6 @@
         android:name="com.example.collab.Companies"
         android:label="companies"
         tools:layout="@layout/companies" />
-
-             <action android:id="@+id/action_companies_to_companiesDetails"
-                     app:destination="@id/companiesDetails"/>
     <fragment
         android:id="@+id/myProjects"
         android:name="com.example.collab.MyProjects"
