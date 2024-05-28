@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Şirket Adı"
+            android:text="Company Name"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Resmi Bilgiler"
+            android:text="Official Information"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp" />
@@ -39,18 +39,18 @@
             android:id="@+id/companyFounded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kuruluş Tarihi: " />
+            android:text="Founded Date: " />
 
         <TextView
             android:id="@+id/companyType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Şirket Türü: " />
+            android:text="Company Type: " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adres"
+            android:text="Address"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp" />
@@ -59,12 +59,12 @@
             android:id="@+id/companyAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adres: " />
+            android:text="Address: " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefon Numarası"
+            android:text="Phone"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp" />
@@ -73,12 +73,12 @@
             android:id="@+id/companyPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefon: " />
+            android:text="Phone: " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="İnsan Kaynakları"
+            android:text="HR"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp" />
@@ -87,13 +87,13 @@
             android:id="@+id/companyHRInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="İnsan Kaynakları Bilgisi: " />
+            android:text="Human Resources Info: " />
 
         <Button
             android:id="@+id/btnZoomMeeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zoom Görüşmesi Ayarla"
+            android:text="Create Zoom Meeting"
             android:layout_gravity="center"
             android:layout_marginTop="20dp" />
 
@@ -101,7 +101,7 @@
             android:id="@+id/btnZoomMeeting2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Listeye Ekle"
+            android:text="Add List"
             android:layout_gravity="center"
             android:layout_marginTop="20dp" />
     </LinearLayout>
