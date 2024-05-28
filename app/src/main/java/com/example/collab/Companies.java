@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +23,8 @@ public class Companies extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private EditText editTextName, editTextSurname, editTextEmailAddress, editTextPhone, editTextUniversity, editTextYear;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -71,7 +75,9 @@ public class Companies extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.companies, container, false);
+        View rootView = inflater.inflate(R.layout.companies, container, false);
+
+        return rootView;
     }
+
 }

@@ -33,30 +33,37 @@
         android:layout_marginTop="200dp"
         android:layout_marginLeft="10dp"/>
 
-    <CheckBox
-        android:id="@+id/checkBoxStudent"
+    <RadioButton
+        android:id="@+id/radioButtonStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="345dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginLeft="47dp"
+        android:text="Student"
         android:textColor="#8B8888"
-        android:buttonTint="#8B8888"/>
+        android:buttonTint="#8B8888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"/>
 
-    <CheckBox
-        android:id="@+id/checkBoxCompany"
+    <RadioButton
+    android:id="@+id/radioButtonCompany"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="385dp"
+    android:layout_marginLeft="47dp"
+    android:text="Company"
+    android:textColor="#8B8888"
+    android:buttonTint="#8B8888"/>
+
+    <RadioButton
+        android:id="@+id/radioButtonAdvisor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="377dp"
-        android:layout_marginLeft="39dp"
-        android:textColor="#8B8888"
-        android:buttonTint="#8B8888"/>
-
-    <CheckBox
-        android:id="@+id/checkBoxAdvisor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="409dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginTop="417dp"
+        android:layout_marginLeft="47dp"
+        android:text="Advisor"
         android:textColor="#8B8888"
         android:buttonTint="#8B8888"/>
 
@@ -67,6 +74,14 @@
         android:layout_marginLeft="210dp"
         android:layout_marginTop="472dp"
         android:src="@drawable/confirm_button" />
+
+    <ImageButton
+        android:id="@+id/cancel_button"
+        android:layout_width="155dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="472dp"
+        android:src="@drawable/cancel_button" />
 
 
 </FrameLayout>

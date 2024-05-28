@@ -48,5 +48,12 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/horizontal_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
