@@ -147,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
             // Navigate to the appropriate edit profile page based on the account type
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            if (accountType.equals("student")) {
+            navController.navigate(R.id.editProfileStudent);
+            /*if (accountType.equals("student")) {
                 navController.navigate(R.id.editProfileStudent);
             } else if (accountType.equals("company")) {
 
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Handle other account types or show an error message
                 Snackbar.make(binding.getRoot(), "Invalid account type", Snackbar.LENGTH_SHORT).show();
-            }
+            }*/
             return true;
         }
 
