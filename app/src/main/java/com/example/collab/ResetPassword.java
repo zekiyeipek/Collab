@@ -62,4 +62,6 @@ public void onClick(View v) {
         ResetPasswordDialogFragment dialogFragment = new ResetPasswordDialogFragment();
         dialogFragment.show(getSupportFragmentManager(), "resetPasswordDialog");
         }
-        });*/
+        });
+
+  */

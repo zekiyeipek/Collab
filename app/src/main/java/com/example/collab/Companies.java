@@ -1,5 +1,4 @@
 package com.example.collab;
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,14 +34,6 @@ public class Companies extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CompaniesFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static Companies newInstance(String param1, String param2) {
         Companies fragment = new Companies();
@@ -51,8 +41,7 @@ public class Companies extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
-        return fragment;
-    }
+        return fragment;}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
