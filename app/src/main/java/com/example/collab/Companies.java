@@ -1,5 +1,7 @@
 package com.example.collab;
 
+import android.content.Intent;
+
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,15 +14,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+
 public class Companies extends Fragment {
 
     public Companies() {
         // Required empty public constructor
     }
 
-    public static Companies newInstance() {
-        return new Companies();
-    }
+
+    // TODO: Rename and change types and number of parameters
+    public static Companies newInstance(String param1, String param2) {
+        Companies fragment = new Companies();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

@@ -94,8 +94,8 @@ public class EditProfileStudent extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_PDF_FILE && resultCode == getActivity().RESULT_OK) {
-            Uri selectedPdf = data.getData();
             // selectedPdf Uri'sini kullanarak PDF dosyasını işleyin
+            Uri selectedPdf = data.getData();
             Toast.makeText(getActivity(), "Selected file: " + selectedPdf.toString(), Toast.LENGTH_SHORT).show();
         }
     }
