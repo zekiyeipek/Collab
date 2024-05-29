@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.collab.databinding.LoginBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -23,16 +24,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 
-import com.example.collab.databinding.LoginBinding;
+
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login extends Fragment {
 
-    private LoginBinding binding;
+
     private FirebaseAuth mAuth;
 
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 123;
+    private LoginBinding binding;
 
     @Override
     public View onCreateView(

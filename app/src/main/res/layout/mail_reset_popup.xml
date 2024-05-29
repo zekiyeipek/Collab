@@ -8,7 +8,7 @@
         android:id="@+id/email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Please enter ypur e-mail."
+        android:hint="Please enter your e-mail."
         android:inputType="textEmailAddress"
         android:layout_marginBottom="20dp"/>
 
