@@ -26,6 +26,8 @@ public class Companies extends Fragment {
     public Companies() {
         // Required empty public constructor
     }
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types and number of parameters
     public static Companies newInstance(String param1, String param2) {

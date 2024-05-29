@@ -3,10 +3,13 @@ package com.example.collab;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +62,21 @@ public class StudentEvaluation extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.student_evaluation, container, false);
+        View view = inflater.inflate(R.layout.student_evaluation, container, false);
+
+        // Find the submit button by its ID
+        Button submitButton = view.findViewById(R.id.submitButton);
+
+        // Set an OnClickListener to the submitButton
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Use NavController to navigate to the dashboard fragment
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.dashBoard);
+            }
+        });
+
+        return view;
     }
 }
