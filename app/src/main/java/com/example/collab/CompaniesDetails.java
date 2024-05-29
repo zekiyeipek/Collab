@@ -7,17 +7,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class CompaniesDetails extends Fragment {
 
+
     private static final String ARG_COMPANY_NAME = "company_name";
 
     private ImageView companyLogo;
     private TextView companyName, companyFounded, companyType, companyAddress, companyPhone, companyHRInfo;
     private Button btnZoomMeeting, btnZoomMeeting2;
+
 
     public CompaniesDetails() {
         // Required empty public constructor
@@ -76,4 +80,5 @@ public class CompaniesDetails extends Fragment {
         // companyPhone.setText("+1 (123) 456-7890");
         // companyHRInfo.setText("Join our team!");
     }
+
 }

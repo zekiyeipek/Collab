@@ -35,8 +35,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="register">Register</string>
-    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
-    <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
-
+    <string name="default_web_client_id">AIzaSyB0MtmbfPYaIUdw8jU4XJxKGkOdtV-6cpU</string>
+    <string name="server_client_id">AIzaSyB0MtmbfPYaIUdw8jU4XJxKGkOdtV-6cpU</string>
     <string name="company_logo">Your Logo Text</string>
 </resources>
