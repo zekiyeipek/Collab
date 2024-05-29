@@ -57,6 +57,14 @@ public class Login extends Fragment {
         // Google ile giriş butonu tanımlaması
         view.findViewById(R.id.googleLoginButton).setOnClickListener(view1 -> signIn());
 
+
+        // "Forgot Password?" TextView click listener
+        view.findViewById(R.id.textView9).setOnClickListener(v -> {
+            ResetPassword resetPasswordDialog = new ResetPassword();
+            resetPasswordDialog.show(getParentFragmentManager(), "resetPasswordDialog");
+        });
+
+
         return view;
     }
 

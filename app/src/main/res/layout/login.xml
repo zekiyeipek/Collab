@@ -108,12 +108,17 @@
             android:layout_height="wrap_content"
             android:text="Forgot Password?"
             android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/password"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.481"
             app:layout_constraintStart_toStartOf="@+id/password"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872" />
+            app:layout_constraintVertical_bias="0.866" />
 
         <ProgressBar
             android:id="@+id/loading"
