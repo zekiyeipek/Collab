@@ -1,13 +1,18 @@
 package com.example.collab;
 import android.content.Intent;
-import android.os.Bundle;
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import android.widget.EditText;
 
 /**
@@ -15,20 +20,8 @@ import android.widget.EditText;
  * Use the {@link Companies#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class Companies extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private EditText editTextName, editTextSurname, editTextEmailAddress, editTextPhone, editTextUniversity, editTextYear;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    Button button;
 
     public Companies() {
         // Required empty public constructor
@@ -43,30 +36,35 @@ public class Companies extends Fragment {
         fragment.setArguments(args);
         return fragment;}
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-       /* setContentView(R.layout.companies);
-        button = (Button) findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewDetails = new Intent(Companies.this, CompaniesDetails.class);
-                        (viewDetails);
-            }
-        });*/
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.companies, container, false);
 
+        // Initialize the buttons
+        Button button1 = rootView.findViewById(R.id.button1);
+        Button button2 = rootView.findViewById(R.id.button2);
+        Button button3 = rootView.findViewById(R.id.button3);
+        Button button4 = rootView.findViewById(R.id.button4);
+
+        // Set onClick listeners to navigate to the company details
+        button1.setOnClickListener(v -> openCompanyDetails("Netflix"));
+        button2.setOnClickListener(v -> openCompanyDetails("Amazon"));
+        button3.setOnClickListener(v -> openCompanyDetails("Apple"));
+        button4.setOnClickListener(v -> openCompanyDetails("Instagram"));
+
         return rootView;
+
+    }
+
+    private void openCompanyDetails(String companyName) {
+        CompaniesDetails companiesDetails = CompaniesDetails.newInstance(companyName);
+
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, companiesDetails); // Ensure your main layout has an ID like fragment_container
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 }

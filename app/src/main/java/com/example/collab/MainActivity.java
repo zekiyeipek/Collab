@@ -45,6 +45,10 @@ import com.example.collab.ApiCollab.ApiService;
 import com.example.collab.ApiCollab.GithubRepo;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -82,6 +86,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DocumentReference userRef = db.collection("users").document(userId);
+            userRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String userRole = document.getString("role");
+                        switch (userRole) {
+                            case "student":
+                                break;
+                            case "company":
+                                break;
+                            case "advisor":
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "Not found.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     //@Override
